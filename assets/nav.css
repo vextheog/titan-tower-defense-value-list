@@ -72,7 +72,6 @@
   box-shadow:0 0 0 2px rgba(100,181,246,.20) inset, 0 10px 26px rgba(0,0,0,.55);
 }
 
-/* Чуть компактнее на телефонах */
 @media (max-width:520px){
   .site-switch-panel{ padding:0 12px; top:8px; }
   .site-switch-btn{ padding:10px 14px; font-size:.96rem; border-radius:13px; }
@@ -81,3 +80,5 @@
 :root { --nav-gap: 16px; }
 
 .site-switch-panel { margin-bottom: var(--nav-gap) !important; }
+
+#site-nav + * { margin-top: var(--nav-gap) !important; }
