@@ -17,13 +17,6 @@
 <link rel="stylesheet" href="./assets/nav.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
 <style>
-:root { --page-gap: 16px; }
-
-    /* единый отступ между навигацией и контентом */
-.page { margin-top: var(--page-gap); }
-
-    /* убираем "скрытый" верхний margin у первого элемента (часто h1/h2) */
-.page > :first-child { margin-top: 0 !important; }
 .navbar {
   background: #2a2a2a;
   padding: 12px 20px;
@@ -61,6 +54,12 @@ body{
   color:#e0e0e0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+    /* CHANGED: unified gap under navigation across pages */
+    :root { --page-gap: 16px; }
+    .page { margin-top: var(--page-gap); }
+    .page > :first-child { margin-top: 0 !important; }
+
 
 .switch-panel{
   max-width:1200px;
@@ -1695,7 +1694,9 @@ font-size: 0.95rem;
 <body>
   <div id="site-nav"></div>
   <script src="./assets/nav.js"></script>
-  <div class="container" style="margin-top:16px">
+
+  <main class="page">
+  <div class="container">
   <div class="switch-panel" role="navigation" aria-label="Switch page">
     <div class="switch-panel-inner">
       <div class="switch-panel-title"><i class="fas fa-layer-group"></i> Switch Pages</div>
@@ -2309,7 +2310,7 @@ font-size: 0.95rem;
       const stabilityStyle = stabilityChipStyle(stabilityText);
 
       const imageHTML = item.imageUrl
-        ? `<img src="${item.imageUrl}" alt="${item.name}" class="item-image" onerror="handleImageError(this)">`
+        ? `<img src="${item.imageUrl}" alt="${item.name}" class="item-image" loading="lazy" decoding="async" onerror="handleImageError(this)">`
         : '<i class="fas fa-box item-icon"></i>';
 
       itemElement.innerHTML = `
@@ -3205,9 +3206,10 @@ theirTotal += rowTotal;
   })();
   </script>
 
+
+  </main>
 </body>
 
 </html>
-
 
 
