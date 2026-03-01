@@ -77,3 +77,7 @@
   .site-switch-panel{ padding:0 12px; top:8px; }
   .site-switch-btn{ padding:10px 14px; font-size:.96rem; border-radius:13px; }
 }
+
+:root { --nav-gap: 16px; }
+
+.site-switch-panel { margin-bottom: var(--nav-gap) !important; }
