@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content='Titan Tower Defense Value List by Suspicious Blob with Relevant Values & Quick Updates'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Titan Tower Defense Value List by Suspicious Blob with Relevant Values & Quick Updates" />
+
   <title>Titan Tower Defense Value List</title>
+
+  <!-- Favicon (favicon.png рядом с index.html) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+  <link rel="icon" sizes="192x192" href="favicon.png" />
+  <link rel="icon" sizes="512x512" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
+  <meta name="theme-color" content="#16213e" />
+
   <meta name="google-site-verification" content="0cYgEwDjZgNjyhWVnpCOrVSOcxN9XrNmXDDHt6vcIRE" />
 
   <!-- Google tag (gtag.js) -->
@@ -16,149 +26,103 @@
     gtag('config', 'G-JSCZMYRF35');
   </script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="./assets/nav.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome + Nav CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/nav.css" />
 
   <style>
-    .navbar {
-      background: #2a2a2a;
-      padding: 12px 20px;
-      border-bottom: 1px solid #444;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #64b5f6;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 20px;
-    }
-
-    .nav-links a {
-      color: #e0e0e0;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: #64b5f6;
-    }
     /* Основные стили */
-    body {
-      background: #393636;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px;
+    body{
+      background:#393636;
+      color:#e0e0e0;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin:0;
+      padding:20px;
     }
 
-    .custom-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: #2a2a2a;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
-      border: 1px solid #444;
+    .custom-container{
+      max-width:1200px;
+      margin:0 auto;
+      background:#2a2a2a;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.6);
+      overflow:hidden;
+      border:1px solid #444;
     }
 
-    .custom-header {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: white;
-      padding: 40px 30px;
-      text-align: center;
-      border-bottom: 1px solid #333f50;
+    .custom-header{
+      background:linear-gradient(135deg,#1a1a2e,#16213e);
+      color:#fff;
+      padding:40px 30px;
+      text-align:center;
+      border-bottom:1px solid #333f50;
     }
 
-    .content-section {
-      padding: 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+    .content-section{
+      padding:30px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:25px;
     }
 
-    .card {
-      background: #2d2d2d;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      border: 1px solid #444;
-      transition: transform 0.3s ease;
+    .card{
+      background:#2d2d2d;
+      border-radius:12px;
+      padding:25px;
+      box-shadow:0 4px 12px rgba(0,0,0,.4);
+      border:1px solid #444;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 8px 20px rgba(0,0,0,.5);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    h1.custom-title{
+      font-size:2.5rem;
+      color:#64b5f6;
+      text-shadow:0 0 10px rgba(100,181,246,.3);
+      margin:0 0 10px;
     }
 
-    h1.custom-title {
-      font-size: 2.5rem;
-      color: #64b5f6;
-      text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
-      margin-bottom: 10px;
+    h2.card-title{
+      color:#bb86fc;
+      font-size:1.8rem;
+      margin:0 0 16px;
+      padding-bottom:12px;
+      border-bottom:1px solid #444;
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
 
-    h2.card-title {
-      color: #bb86fc;
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #444;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .card-content{ line-height:1.7; }
+    .card-content p{ margin:0 0 12px; }
+
+    .highlight-box{
+      background:linear-gradient(135deg,#1a2a3a,#23354d);
+      padding:16px;
+      border-radius:10px;
+      margin:0;
+      border:1px solid #333f50;
     }
 
-    .card-content {
-      line-height: 1.7;
+    .disclaimer{
+      color:#e74c3c;
+      font-size:.9rem;
+      text-align:center;
+      margin:15px 20px 20px;
+      padding:10px;
+      background:rgba(231,76,60,.1);
+      border-radius:8px;
     }
 
-    .card-content p {
-      margin-bottom: 12px;
-    }
-
-    /* чуть компактнее */
-    .highlight-box {
-      background: linear-gradient(135deg, #1a2a3a, #23354d);
-      padding: 16px;
-      border-radius: 10px;
-      margin: 0;
-      border: 1px solid #333f50;
-    }
-
-    /* Иконки */
-    .icon {
-      font-size: 1.5rem;
-      color: #64b5f6;
-    }
-
-    .disclaimer {
-      color: #e74c3c;
-      font-size: 0.9rem;
-      text-align: center;
-      margin-top: 15px;
-      padding: 10px;
-      background: rgba(231, 76, 60, 0.1);
-      border-radius: 8px;
-    }
-
-    /* ===== PC MODE BUTTON (Trade Calculator style) ===== */
+    /* ===== PC MODE BUTTON ===== */
     .pcmode-wrap{
       display:flex;
       justify-content:center;
       margin-top:12px;
     }
-
     .pcmode-btn{
       background:#222;
       color:#e0e0e0;
@@ -177,162 +141,144 @@
       transition:.15s transform,.15s background,.15s border;
       touch-action:manipulation;
     }
-
     .pcmode-btn:hover{ background:#2c2c2c; }
     .pcmode-btn:active{ transform:scale(.97); }
-
     .pcmode-btn.active{
       background:linear-gradient(135deg, rgba(100,181,246,.28), rgba(187,134,252,.22));
       border-color:#64b5f6;
       color:#fff;
     }
-
     @media (prefers-reduced-motion: reduce){
       .pcmode-btn{ transition:none !important; }
+      .card{ transition:none !important; }
     }
 
     /* компактные списки внутри карточек */
     .compact-list{
-      margin: 10px 0 0;
-      padding-left: 18px;
+      margin:10px 0 0;
+      padding-left:18px;
     }
     .compact-list li{
-      margin: 8px 0;
+      margin:8px 0;
       color:#c7d2da;
     }
 
-    .mini-note{
-      margin-top:10px;
-      color:#bbd8ff;
-      font-size:.92rem;
-      opacity:.95;
-    }
-
     /* Адаптивность (обычный режим) */
-    @media (max-width: 768px) {
-      body { padding: 10px; }
-      .custom-header { padding: 25px 20px; }
-      .content-section { padding: 20px; grid-template-columns: 1fr; }
-      h1.custom-title { font-size: 2rem; }
+    @media (max-width:768px){
+      body{ padding:10px; }
+      .custom-header{ padding:25px 20px; }
+      .content-section{ padding:20px; grid-template-columns:1fr; }
+      h1.custom-title{ font-size:2rem; }
     }
 
     /* =======================================================
-       PC MODE (как во 2-м коде): desktop width + x-scroll
+       PC MODE: desktop width + x-scroll
        ======================================================= */
     body.pc-mode{
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
-      padding:14px; /* чуть компактнее */
+      padding:14px;
     }
 
-    /* "Desktop width" inside mobile/iframe */
     body.pc-mode .custom-container{
       width:1100px !important;
       max-width:none !important;
       margin:12px auto !important;
     }
 
-    /* Компактнее шапка/текст + 4 колонки */
-    body.pc-mode .custom-header{
-      padding:26px 24px !important;
-    }
-    body.pc-mode h1.custom-title{
-      font-size:2.15rem !important;
-      margin-bottom:6px !important;
-    }
+    body.pc-mode .custom-header{ padding:26px 24px !important; }
+    body.pc-mode h1.custom-title{ font-size:2.15rem !important; margin-bottom:6px !important; }
     body.pc-mode .content-section{
       padding:22px !important;
       gap:16px !important;
-      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
     }
-    body.pc-mode .card{
-      padding:16px !important;
-    }
+    body.pc-mode .card{ padding:16px !important; }
     body.pc-mode h2.card-title{
       font-size:1.35rem !important;
       margin-bottom:12px !important;
       padding-bottom:10px !important;
     }
-    body.pc-mode .card-content{
-      font-size:.98rem !important;
-      line-height:1.55 !important;
-    }
-  
-    /* ===== Unified spacing under shared navigation ===== */
-    :root { --page-gap: 16px; }
-    .page { margin-top: var(--page-gap); }
-    .page > :first-child { margin-top: 0 !important; }
+    body.pc-mode .card-content{ font-size:.98rem !important; line-height:1.55 !important; }
 
+    /* ===== Spacing under shared navigation ===== */
+    :root{ --page-gap:16px; }
+    .page-wrap{ margin-top:var(--page-gap); }
+    .page-wrap > :first-child{ margin-top:0 !important; }
   </style>
 </head>
 
 <body>
-    <div id="site-nav"></div>
-    <script src="./assets/nav.js"></script>
+  <div id="site-nav"></div>
+  <script src="./assets/nav.js"></script>
 
-    <main class="page">
-      <div class="custom-container">
-        <header class="custom-header">
-      <h1 class="custom-title"> Titan Tower Defense Value List</h1>
+  <main class="page-wrap">
+    <div class="custom-container">
+      <header class="custom-header">
+        <h1 class="custom-title">Titan Tower Defense Value List</h1>
 
-      <div class="pcmode-wrap">
-        <button class="pcmode-btn" id="pcmode-btn" type="button" aria-pressed="false">
-          <i class="fas fa-desktop"></i> PC Mode
-        </button>
-      </div>
-    </header>
-
-    <div class="content-section">
-      <!-- Important -->
-      <div class="card">
-        <h2 class="card-title"> Important</h2>
-        <div class="card-content">
-          <p>Value Lists are for superficial price knowledge, don't take everything as the absolute truth (please don't)</p>
-          <p>Values are in:
-            <span style="color:#95a5a6;">Upgraded Keys</span> /
-            <span style="color:#f1c40f;">Gold Bars</span> /
-            <span style="color:#e74c3c;">Titans 1.0</span> (They are equal, but may differ slightly)
-          </p>
+        <div class="pcmode-wrap">
+          <button class="pcmode-btn" id="pcmode-btn" type="button" aria-pressed="false">
+            <i class="fas fa-desktop"></i> PC Mode
+          </button>
         </div>
-      </div>
+      </header>
 
-      <!-- Real PC Mode (separate compact card) -->
-      <div class="card">
-        <h2 class="card-title"> Real PC Mode</h2>
-        <div class="card-content">
-          <div class="highlight-box">
-            <p><strong>Enable Desktop site (phones/tablets):</strong></p>
-            <ul class="compact-list">
-              <li><strong>Android (Chrome):</strong> ⋮ → <strong>Desktop site</strong></li>
-              <li><strong>iPhone/iPad (Safari):</strong> <strong>aA</strong> → <strong>Request Desktop Website</strong></li>
-              <li><strong>iPhone/iPad (Chrome):</strong> ⋯ → <strong>Request Desktop Site</strong></li>
-              <li>If it still looks “mobile”, <strong>refresh</strong> after enabling it</li>
-            </ul>
+      <div class="content-section">
+        <!-- Important -->
+        <div class="card">
+          <h2 class="card-title">Important</h2>
+          <div class="card-content">
+            <p>Value Lists are for superficial price knowledge, don't take everything as the absolute truth (please don't)</p>
+            <p>
+              Values are in:
+              <span style="color:#95a5a6;">Upgraded Keys</span> /
+              <span style="color:#f1c40f;">Gold Bars</span> /
+              <span style="color:#e74c3c;">Titans 1.0</span>
+              (They are equal, but may differ slightly)
+            </p>
+          </div>
+        </div>
+
+        <!-- Real PC Mode -->
+        <div class="card">
+          <h2 class="card-title">Real PC Mode</h2>
+          <div class="card-content">
+            <div class="highlight-box">
+              <p><strong>Enable Desktop site (phones/tablets):</strong></p>
+              <ul class="compact-list">
+                <li><strong>Android (Chrome):</strong> ⋮ → <strong>Desktop site</strong></li>
+                <li><strong>iPhone/iPad (Safari):</strong> <strong>aA</strong> → <strong>Request Desktop Website</strong></li>
+                <li><strong>iPhone/iPad (Chrome):</strong> ⋯ → <strong>Request Desktop Site</strong></li>
+                <li>If it still looks “mobile”, <strong>refresh</strong> after enabling it</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Information -->
+        <div class="card">
+          <h2 class="card-title">Information</h2>
+          <div class="card-content">
+            <p><strong>Value List Creator:</strong> Suspicious Blob (Founghtime)</p>
+            <p><strong>Last updated:</strong> 15.02.2026</p>
+            <p>
+              <strong>The Game Link:</strong>
+              <a href="https://www.roblox.com/games/14641667067/Titan-Tower-Defense" style="color:#1E90FF; text-decoration:none;">[ Click Here ]</a>
+            </p>
+            <p>
+              <strong>Discord Server:</strong>
+              <a href="https://discord.com/invite/titantd" style="color:#1E90FF; text-decoration:none;">[ Click Here ]</a>
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- Information -->
-      <div class="card">
-        <h2 class="card-title"> Information</h2>
-        <div class="card-content">
-          <p><strong>Value List Creator:</strong> Suspicious Blob (Founghtime)</p>
-          <p><strong>Last updated: </strong> 15.02.2026</p>
-          <p><strong>The Game Link: </strong>
-            <a href="https://www.roblox.com/games/14641667067/Titan-Tower-Defense" style="color: #1E90FF; text-decoration: none;">[ Click Here ]</a>
-          </p>
-          <p><strong>Discord Server: </strong>
-            <a href="https://discord.com/invite/titantd" style="color: #1E90FF; text-decoration: none;">[ Click Here ]</a>
-          </p>
-        </div>
+      <div class="disclaimer">
+        <p>This is NOT an official Value List. All values are determined using trades and may vary</p>
       </div>
     </div>
-
-    <div class="disclaimer">
-      <p>This is NOT an official Value List. All values are determined using trades and may vary</p>
-    </div>
-      </div>
-    </main>
+  </main>
 
   <script>
     (function(){
@@ -350,29 +296,20 @@
           btn.setAttribute('aria-pressed', String(isOn));
         }
 
-        try{
-          localStorage.setItem(KEY, isOn ? '1' : '0');
-        }catch(_){}
+        try{ localStorage.setItem(KEY, isOn ? '1' : '0'); }catch(_){}
       }
 
       let saved = false;
-      try{
-        saved = localStorage.getItem(KEY) === '1';
-      }catch(_){}
+      try{ saved = localStorage.getItem(KEY) === '1'; }catch(_){}
 
       applyPcMode(saved);
 
       if(btn){
         btn.addEventListener('click', () => {
-          const next = !document.body.classList.contains('pc-mode');
-          applyPcMode(next);
+          applyPcMode(!document.body.classList.contains('pc-mode'));
         });
       }
     })();
   </script>
 </body>
 </html>
-
-
-
-
