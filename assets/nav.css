@@ -82,3 +82,6 @@
 .site-switch-panel { margin-bottom: var(--nav-gap) !important; }
 
 #site-nav + * { margin-top: var(--nav-gap) !important; }
+
+:root { --nav-gap: 16px; }
+.nav-spacer { height: var(--nav-gap); }
