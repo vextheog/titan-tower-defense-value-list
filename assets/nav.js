@@ -3,7 +3,7 @@
   if (!host) return;
 
   // подгружаем HTML навигации
-  const res = await fetch('./assets/nav.html?v=3', { cache: 'no-store' });
+  const res = await fetch('./assets/nav.html', { cache: 'no-store' });
   host.innerHTML = await res.text();
 
   // подсветка активной страницы
