@@ -57,8 +57,8 @@ body{
 
     /* CHANGED: unified gap under navigation across pages */
     :root { --page-gap: 16px; }
-    .page { margin-top: var(--page-gap); }
-    .page > :first-child { margin-top: 0 !important; }
+     .page-wrap { margin-top: var(--page-gap); }
+     .page-wrap > :first-child { margin-top: 0 !important; }
 
 
 .switch-panel{
@@ -1695,7 +1695,7 @@ font-size: 0.95rem;
   <div id="site-nav"></div>
   <script src="./assets/nav.js"></script>
 
-  <main class="page">
+  <main class="page-wrap">
   <div class="container">
   <div class="switch-panel" role="navigation" aria-label="Switch page">
     <div class="switch-panel-inner">
