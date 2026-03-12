@@ -487,13 +487,30 @@ body{
   }
 
   #value-page .item-rarity{
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    color: white;
+    margin: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  #value-page .item-rarity > span{
+    display: block;
     font-size: 0.7rem;
     font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 10px;
-    display: inline-block;
-    color: white;
-    margin-bottom: 6px;
+    line-height: 1;
+    transform: translateY(-2px);
+    will-change: transform;
   }
 
   #value-page .all .item-rarity, #value-page .premade-item.all{ border-top: 4px solid #64b5f6; }
@@ -511,6 +528,9 @@ body{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
     color: white;
     text-shadow: 0 0 2px rgba(0,0,0,0.5);
+  }
+  #value-page .shiny .item-rarity > span{
+    transform: translateY(0px);
   }
   #value-page .premade-item.shiny{ border-top: none; position: relative; }
   #value-page .premade-item.shiny::before{
@@ -1249,14 +1269,31 @@ font-size: 0.95rem;
     #trade-page .premade-item .item-demand-value{ font-weight: bold; color: #64b5f6; }
 
     #trade-page .item-rarity{
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 3px 8px;
+      height: 22px;
+      padding: 0 8px;
       border-radius: 10px;
-      display: inline-block;
-      margin: 5px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      margin: 5px 0;
       background: #333;
       color: #e0e0e0;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    #trade-page .item-rarity > span{
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      line-height: 1;
+      transform: translateY(-1px);
+      will-change: transform;
     }
 
     #trade-page .epic .item-rarity{ background:#9b59b6; color:white; }
@@ -1267,7 +1304,12 @@ font-size: 0.95rem;
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       color: white;
       text-shadow: 0 0 3px rgba(0,0,0,0.8);
-      border: 1px solid white;
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+    #trade-page .shiny .item-rarity > span{
+      transform: translateY(-1px);
     }
     #trade-page .item .item-rarity{ background:#95a5a6; color:white; }
 
@@ -2023,7 +2065,7 @@ font-size: 0.95rem;
         { name: "Titan Grill", minPrice: 2070, maxPrice: 2070, demand: 4, stability: "Rising", imageUrl: "https://i.ibb.co/dszQBh36/Titan-Grill.png" },
         { name: "Titan Grill (full gas)", minPrice: 1890, maxPrice: 1890, demand: 8, stability: "Rising", imageUrl: "https://i.ibb.co/nN78WWYg/transparent-Photoroom-2026-01-23-T151103-818.png" },
         { name: "Enhanced Energy TV", minPrice: 810, maxPrice: 810, demand: 6, imageUrl: "https://i.ibb.co/x8tDNXSM/transparent-Photoroom-36.png" },
-        { name: "Energy TV", minPrice: 720, maxPrice: 720, demand: 6, imageUrl: "https://i.ibb.co/x8tDNXSM/transparent-Photoroom-36.png" },
+        { name: "Energy TV", minPrice: 675, maxPrice: 675, demand: 6, imageUrl: "https://i.ibb.co/x8tDNXSM/transparent-Photoroom-36.png" },
         { name: "Clock Woman", minPrice: 540, maxPrice: 540, demand: 5, imageUrl: "https://i.ibb.co/SwG1DPbH/transparent-Photoroom-37.png" }
       ],
       shiny: [
@@ -2341,7 +2383,7 @@ font-size: 0.95rem;
       itemElement.innerHTML = `
         <div class="item-image-container">${imageHTML}</div>
         <div class="item-name">${item.name}</div>
-        <div class="item-rarity">${rarity.charAt(0).toUpperCase() + rarity.slice(1)}</div>
+        <div class="item-rarity"><span>${rarity.charAt(0).toUpperCase() + rarity.slice(1)}</span></div>
 
         <div class="stats-chips">
           <div class="stat-chip chip-price"><span class="stat-label">Value:</span><span class="stat-value">${coinsHTML}</span></div>
@@ -2544,7 +2586,7 @@ font-size: 0.95rem;
           <div class="item-image-container">${imageHTML}</div>
           <div>
             <div class="item-name">${item.name}</div>
-            <div class="item-rarity">${rarityName}</div>
+            <div class="item-rarity"><span>${rarityName}</span></div>
 
             <div class="stats-chips">
               <div class="stat-chip chip-price"><span class="stat-label">Value:</span><span class="stat-value">${coinsHTML}</span></div>
@@ -3236,31 +3278,3 @@ theirTotal += rowTotal;
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
