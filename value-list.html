@@ -72,6 +72,35 @@ body{
      .page-wrap { margin-top: var(--page-gap); }
      .page-wrap > :first-child { margin-top: 0 !important; }
 
+.header-toggle-group{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:0;
+}
+
+.header-toggle-spacer{
+  width:100%;
+  height:14px;
+  pointer-events:none;
+}
+
+#value-page .premade-item .item-name,
+#trade-page .premade-item .item-name{
+  font-weight:800;
+}
+
+#value-page .item-rarity > span,
+#trade-page .item-rarity > span{
+  font-weight:800;
+}
+
+.cards-text-regular #value-page .premade-item *,
+.cards-text-regular #trade-page .premade-item *{
+  font-weight:500 !important;
+}
 
 .switch-panel{
   max-width:1200px;
@@ -1808,10 +1837,16 @@ font-size: 0.95rem;
         <p><strong>1 UTTV = 90 Value</strong></p>
       </div>
 
-      <div class="pcmode-wrap">
-        <button class="pcmode-btn" id="vl-pcmode-btn" type="button">
-          <i class="fas fa-desktop"></i>
-          <span>PC Mode</span>
+      <div class="header-toggle-spacer" aria-hidden="true"></div>
+
+      <div class="header-toggle-group">
+        <button class="pcmode-btn" id="vl-pcmode-btn" type="button" aria-pressed="true">
+          <i class="fas fa-mobile-screen-button"></i>
+          <span>Mobile Mode</span>
+        </button>
+        <button class="pcmode-btn text-weight-btn" id="vl-card-text-btn" type="button" aria-pressed="false">
+          <i class="fas fa-font"></i>
+          <span>Bold Card Text</span>
         </button>
       </div>
     </header>
@@ -1873,9 +1908,16 @@ font-size: 0.95rem;
         <p><strong>1 UTTV = 90 Value</strong></p>
       </div>
 
-      <div class="pcmode-wrap">
+      <div class="header-toggle-spacer" aria-hidden="true"></div>
+
+      <div class="header-toggle-group">
         <button class="pcmode-btn" id="tc-pcmode-btn" type="button" aria-pressed="false">
-          <i class="fas fa-desktop"></i> PC Mode
+          <i class="fas fa-desktop"></i>
+          <span>PC Mode</span>
+        </button>
+        <button class="pcmode-btn text-weight-btn" id="tc-card-text-btn" type="button" aria-pressed="false">
+          <i class="fas fa-font"></i>
+          <span>Bold Card Text</span>
         </button>
       </div>
 
@@ -3368,10 +3410,52 @@ theirTotal += rowTotal;
 })();
   </script>
 
+
   <script>
   (function(){
     'use strict';
-    const KEY = 'ttd_pc_mode';
+    const KEY = 'ttd_card_text_regular_v2';
+    const DEFAULT_REGULAR = false;
+    const btns = [document.getElementById('vl-card-text-btn'), document.getElementById('tc-card-text-btn')].filter(Boolean);
+
+    function setBtn(btn, on){
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', String(on));
+      btn.innerHTML = on
+        ? '<i class="fas fa-font"></i><span>Regular Card Text</span>'
+        : '<i class="fas fa-bold"></i><span>Bold Card Text</span>';
+    }
+
+    function apply(on){
+      document.body.classList.toggle('cards-text-regular', on);
+      btns.forEach(btn => setBtn(btn, on));
+      try { localStorage.setItem(KEY, on ? '1' : '0'); } catch(e) {}
+    }
+
+    let saved = DEFAULT_REGULAR;
+    try {
+      const raw = localStorage.getItem(KEY);
+      saved = raw === null ? DEFAULT_REGULAR : (raw === '1');
+    } catch(e) {}
+    apply(saved);
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        apply(!document.body.classList.contains('cards-text-regular'));
+      });
+    });
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === KEY) apply(e.newValue === '1');
+    });
+  })();
+  </script>
+
+  <script>
+  (function(){
+    'use strict';
+    const KEY = 'ttd_pc_mode_v2';
+    const DEFAULT_PC_MODE = true;
     const valuePage = document.getElementById('value-page');
     const tradePage = document.getElementById('trade-page');
     const btns = [document.getElementById('vl-pcmode-btn'), document.getElementById('tc-pcmode-btn')].filter(Boolean);
@@ -3380,7 +3464,7 @@ theirTotal += rowTotal;
       btn.classList.toggle('active', on);
       btn.setAttribute('aria-pressed', String(on));
       btn.innerHTML = on
-        ? '<i class="fas fa-mobile-alt"></i><span>Mobile Mode</span>'
+        ? '<i class="fas fa-mobile-screen-button"></i><span>Mobile Mode</span>'
         : '<i class="fas fa-desktop"></i><span>PC Mode</span>';
     }
 
@@ -3392,8 +3476,11 @@ theirTotal += rowTotal;
       try { localStorage.setItem(KEY, on ? '1' : '0'); } catch(e) {}
     }
 
-    let saved = false;
-    try { saved = (localStorage.getItem(KEY) === '1'); } catch(e) {}
+    let saved = DEFAULT_PC_MODE;
+    try {
+      const raw = localStorage.getItem(KEY);
+      saved = raw === null ? DEFAULT_PC_MODE : (raw === '1');
+    } catch(e) {}
     apply(saved);
 
     btns.forEach(btn => {
@@ -3413,3 +3500,9 @@ theirTotal += rowTotal;
 </body>
 
 </html>
+
+
+
+
+
+
