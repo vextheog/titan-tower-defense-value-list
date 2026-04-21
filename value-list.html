@@ -331,6 +331,23 @@ body{
 
   #value-page .rarity-tab.item.active{ background: #95a5a6; border-color: #7f8c8d; color: white; }
 
+  #value-page .rarity-filter-actions{ margin: -6px 0 16px; display: flex; justify-content: flex-end; }
+  #value-page .rarity-clear-btn{
+    background: #2d2d2d;
+    color: #e0e0e0;
+    border: 2px solid #444;
+    border-radius: 10px;
+    padding: 9px 14px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s;
+  }
+  #value-page .rarity-clear-btn:hover{ background: #3a3a3a; border-color: #64b5f6; color: #fff; }
+
   #value-page .search-container{ margin: 15px 0; position: relative; }
   #value-page .search-container input{ width: 100%; padding: 12px 15px 12px 40px; border-radius: 25px; border: 2px solid #444; background: #2d2d2d; color: #e0e0e0; font-size: 1rem; transition: all 0.3s; }
   #value-page .search-container input:focus{ outline: none; border-color: #64b5f6; box-shadow: 0 0 10px rgba(100, 181, 246, 0.3); }
@@ -1129,6 +1146,23 @@ font-size: 0.95rem;
     #trade-page .rarity-tab.item.active{ background:#95a5a6; border-color:#7f8c8d; color:white; }
     #trade-page .rarity-tab.all.active{ background:#3498db; border-color:#2980b9; color:white; }
 
+    #trade-page .rarity-filter-actions{ margin: -4px 0 14px; display: flex; justify-content: flex-end; }
+    #trade-page .rarity-clear-btn{
+      background: #2d2d2d;
+      color: #e0e0e0;
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s;
+    }
+    #trade-page .rarity-clear-btn:hover{ background:#3a3a3a; border-color:#64b5f6; color:#fff; }
+
     #trade-page .search-container{ margin: 15px 0; position: relative; }
     #trade-page .search-container input{
       width: 100%;
@@ -1794,6 +1828,11 @@ font-size: 0.95rem;
         <div class="rarity-tab shiny" onclick="VL_showRarity('shiny')">Shiny</div>
         <div class="rarity-tab item" onclick="VL_showRarity('item')">Item</div>
       </div>
+      <div class="rarity-filter-actions">
+        <button class="rarity-clear-btn" type="button" onclick="VL_clearRarityFilters()">
+          <i class="fas fa-rotate-left"></i> Clear
+        </button>
+      </div>
 
       <div class="search-container">
         <i class="fas fa-search"></i>
@@ -1925,6 +1964,11 @@ font-size: 0.95rem;
           <div class="rarity-tab secret" onclick="TC_showRarity('secret')">Secret</div>
           <div class="rarity-tab shiny" onclick="TC_showRarity('shiny')">Shiny</div>
           <div class="rarity-tab item" onclick="TC_showRarity('item')">Item</div>
+        </div>
+        <div class="rarity-filter-actions">
+          <button class="rarity-clear-btn" type="button" onclick="TC_clearRarityFilters()">
+            <i class="fas fa-rotate-left"></i> Clear
+          </button>
         </div>
 
         <div class="search-container">
@@ -2280,7 +2324,8 @@ font-size: 0.95rem;
 (function(){
   'use strict';
   const ROOT = document.getElementById('value-page');
-  let currentRarity = 'all';
+  const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'shiny', 'item'];
+  const selectedRarities = new Set();
   let currentFilter = '';
   let currentSort = 'highToLow';
   let allItemsArray = [];
@@ -2291,7 +2336,7 @@ font-size: 0.95rem;
         allItemsArray.push({ ...item, rarity: rarity });
       });
     }
-    showRarity('all');
+    renderCurrentItems();
   });
 
   function sortLabel(sortType){
@@ -2302,6 +2347,36 @@ font-size: 0.95rem;
       case 'za': return 'Z → A';
       default: return String(sortType || '');
     }
+  }
+
+  function isAllMode(){
+    return selectedRarities.size === 0;
+  }
+
+  function updateRarityTabs(){
+    ROOT.querySelectorAll('.rarity-tab').forEach(tab => {
+      const rarity = ALL_RARITIES.find(cls => tab.classList.contains(cls));
+      const isAllTab = tab.classList.contains('all');
+      const shouldBeActive = isAllTab ? isAllMode() : !!rarity && selectedRarities.has(rarity);
+      tab.classList.toggle('active', shouldBeActive);
+    });
+  }
+
+  function getFilteredItems(){
+    let filteredItems = isAllMode()
+      ? [...allItemsArray]
+      : allItemsArray.filter(item => selectedRarities.has(String(item.rarity || '').toLowerCase()));
+
+    if (currentFilter) {
+      filteredItems = filteredItems.filter(item => item.name.toLowerCase().includes(currentFilter));
+    }
+
+    return sortItems(filteredItems);
+  }
+
+  function renderCurrentItems(){
+    updateRarityTabs();
+    renderItems(getFilteredItems());
   }
 
   function setSort(sortType) {
@@ -2317,12 +2392,12 @@ font-size: 0.95rem;
     const details = document.getElementById('vl-sort-details');
     if (details) details.open = false;
 
-    showRarity(currentRarity);
+    renderCurrentItems();
   }
 
   function filterItems() {
     currentFilter = document.getElementById('vl-item-search').value.toLowerCase().trim();
-    showRarity(currentRarity);
+    renderCurrentItems();
   }
 
   function sortItems(items) {
@@ -2343,22 +2418,21 @@ font-size: 0.95rem;
   }
 
   function showRarity(rarity) {
-    currentRarity = rarity;
+    rarity = String(rarity || '').toLowerCase();
 
-    ROOT.querySelectorAll('.rarity-tab').forEach(tab => tab.classList.remove('active'));
-    const tab = ROOT.querySelector(`.rarity-tab.${rarity}`);
-    if (tab) tab.classList.add('active');
-
-    let filteredItems = [];
-    if (rarity === 'all') filteredItems = [...allItemsArray];
-    else filteredItems = [...(premadeItems[rarity] || [])];
-
-    if (currentFilter) {
-      filteredItems = filteredItems.filter(item => item.name.toLowerCase().includes(currentFilter));
+    if (rarity === 'all') {
+      selectedRarities.clear();
+    } else if (ALL_RARITIES.includes(rarity)) {
+      if (selectedRarities.has(rarity)) selectedRarities.delete(rarity);
+      else selectedRarities.add(rarity);
     }
 
-    filteredItems = sortItems(filteredItems);
-    renderItems(filteredItems);
+    renderCurrentItems();
+  }
+
+  function clearRarityFilters() {
+    selectedRarities.clear();
+    renderCurrentItems();
   }
 
   function renderItems(items) {
@@ -2377,7 +2451,7 @@ font-size: 0.95rem;
     }
 
     items.forEach(item => {
-      const rarity = item.rarity || currentRarity;
+      const rarity = String(item.rarity || 'all').toLowerCase();
       const itemElement = document.createElement('div');
       itemElement.className = `premade-item ${rarity}`;
 
@@ -2424,6 +2498,7 @@ font-size: 0.95rem;
   }
 
   window.VL_showRarity = showRarity;
+  window.VL_clearRarityFilters = clearRarityFilters;
   window.VL_filterItems = filterItems;
   window.VL_setSort = setSort;
 })();
@@ -2435,8 +2510,9 @@ font-size: 0.95rem;
   const ROOT = document.getElementById('trade-page');
     let priceMode = 'avg'; // 'min', 'avg', 'max'
 
+    const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'shiny', 'item'];
+    const selectedRarities = new Set();
     let currentSort = 'highToLow'; // 'highToLow', 'lowToHigh', 'az', 'za'
-    let currentRarity = 'all';
     let currentFilter = '';
 
     const allItemsArray = [];
@@ -2452,7 +2528,7 @@ font-size: 0.95rem;
     document.addEventListener('DOMContentLoaded', function() {
       loadState();
       syncPriceModeButtons();
-      showRarity('all');
+      renderCurrentItems();
       calculateTotal();
     });
 
@@ -2491,12 +2567,12 @@ font-size: 0.95rem;
       const details = document.getElementById('tc-sort-details');
       if (details) details.open = false;
 
-      showRarity(currentRarity);
+      renderCurrentItems();
     }
 
     function filterItems() {
       currentFilter = document.getElementById('tc-item-search').value.toLowerCase().trim();
-      showRarity(currentRarity);
+      renderCurrentItems();
     }
 
     function sortItems(items) {
@@ -2516,25 +2592,57 @@ font-size: 0.95rem;
       container.innerHTML = '<i class="fas fa-image item-icon"></i>';
     }
 
-    function showRarity(rarity) {
-      currentRarity = rarity;
+    function isAllMode() {
+      return selectedRarities.size === 0;
+    }
 
-      ROOT.querySelectorAll('.rarity-tab').forEach(tab => tab.classList.remove('active'));
-      const activeTab = ROOT.querySelector(`.rarity-tab.${rarity}`);
-      if(activeTab) activeTab.classList.add('active');
+    function updateRarityTabs() {
+      ROOT.querySelectorAll('.rarity-tab').forEach(tab => {
+        const rarity = ALL_RARITIES.find(cls => tab.classList.contains(cls));
+        const isAllTab = tab.classList.contains('all');
+        const shouldBeActive = isAllTab ? isAllMode() : !!rarity && selectedRarities.has(rarity);
+        tab.classList.toggle('active', shouldBeActive);
+      });
+    }
 
-      const container = document.getElementById('tc-premade-items');
-      container.innerHTML = '';
-
-      let items = (rarity === 'all')
+    function getFilteredItems() {
+      let items = isAllMode()
         ? [...allItemsArray]
-        : (Array.isArray(premadeItems[rarity]) ? [...premadeItems[rarity]] : []);
+        : allItemsArray.filter(item => selectedRarities.has(String(item.rarity || '').toLowerCase()));
 
       if (currentFilter) {
         items = items.filter(item => item.name.toLowerCase().includes(currentFilter));
       }
 
-      items = sortItems(items);
+      return sortItems(items);
+    }
+
+    function renderCurrentItems() {
+      updateRarityTabs();
+      renderItems(getFilteredItems());
+    }
+
+    function showRarity(rarity) {
+      rarity = String(rarity || '').toLowerCase();
+
+      if (rarity === 'all') {
+        selectedRarities.clear();
+      } else if (ALL_RARITIES.includes(rarity)) {
+        if (selectedRarities.has(rarity)) selectedRarities.delete(rarity);
+        else selectedRarities.add(rarity);
+      }
+
+      renderCurrentItems();
+    }
+
+    function clearRarityFilters() {
+      selectedRarities.clear();
+      renderCurrentItems();
+    }
+
+    function renderItems(items) {
+      const container = document.getElementById('tc-premade-items');
+      container.innerHTML = '';
 
       if (items.length === 0) {
         container.innerHTML = `
@@ -2550,7 +2658,7 @@ font-size: 0.95rem;
       items.forEach(item => {
         const itemElement = document.createElement('div');
 
-        const displayRarity = (rarity === 'all') ? item.rarity : rarity;
+        const displayRarity = String(item.rarity || 'all').toLowerCase();
         itemElement.className = `premade-item ${displayRarity}`;
 
         const rarityName = displayRarity.charAt(0).toUpperCase() + displayRarity.slice(1);
@@ -2633,7 +2741,7 @@ font-size: 0.95rem;
             stability: item.stability,
             rarity: displayRarity,
             imageUrl: item.imageUrl,
-            isShiny: (rarity === 'shiny' || String(displayRarity || '').toLowerCase() === 'shiny' || item.isShiny === true || item.shiny === true)
+            isShiny: (displayRarity === 'shiny' || item.isShiny === true || item.shiny === true)
           }, e);
         });
 
@@ -2649,7 +2757,7 @@ font-size: 0.95rem;
             stability: item.stability,
             rarity: displayRarity,
             imageUrl: item.imageUrl,
-            isShiny: (rarity === 'shiny' || String(displayRarity || '').toLowerCase() === 'shiny' || item.isShiny === true || item.shiny === true)
+            isShiny: (displayRarity === 'shiny' || item.isShiny === true || item.shiny === true)
           }, e);
         });
 
@@ -3095,7 +3203,7 @@ theirTotal += rowTotal;
 
       priceMode = 'avg';
       currentSort = 'highToLow';
-      currentRarity = 'all';
+      selectedRarities.clear();
       currentFilter = '';
       selectedSide = 'your';
 
@@ -3202,6 +3310,7 @@ theirTotal += rowTotal;
       container.appendChild(itemElement);
     }
   window.TC_showRarity = showRarity;
+  window.TC_clearRarityFilters = clearRarityFilters;
   window.TC_filterItems = filterItems;
   window.TC_setSort = setSort;
   window.TC_selectSide = selectSide;
@@ -3304,9 +3413,3 @@ theirTotal += rowTotal;
 </body>
 
 </html>
-
-
-
-
-
-
