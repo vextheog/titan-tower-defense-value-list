@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://founghtime.github.io/titan-tower-defense-value-list/sitemap.xml
+Sitemap: https://vextheog.github.io/titan-tower-defense-value-list/sitemap.xml
