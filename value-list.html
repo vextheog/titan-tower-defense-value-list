@@ -2353,10 +2353,11 @@ font-size: 0.95rem;
     if (v === 'rising') return 'Rising';
     if (v === 'dropping') return 'Dropping';
     if (v === 'fluctuating') return 'Fluctuating';
+    if (v === 'MEGA RISING YAY') return 'MEGA RISING YAY';
     return 'Stable';
   }
   function stabilityClass(value){
-    return normalizeStability(value).toLowerCase(); // stable | rising | dropping | fluctuating
+    return normalizeStability(value).toLowerCase(); // stable | rising | dropping | fluctuating  |  MEGA RISING YAY
   }
 
   function clampNumber(n, min, max){
@@ -2397,6 +2398,7 @@ font-size: 0.95rem;
     if (s === 'Rising') return [0, 230, 118];          // green
     if (s === 'Dropping') return [255, 92, 92];        // red
     if (s === 'Fluctuating') return [255, 193, 7];     // amber
+    if (s === 'MEGA RISING YAY') return [0,255,240];   // aqua
     return [120, 200, 255];                            // Stable: blue/cyan
   }
   function stabilityChipStyle(status){
