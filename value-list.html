@@ -353,6 +353,7 @@ body{
   #value-page .rarity-tab.mythic.active{ background: #e74c3c; border-color: #e74c3c; color: white; }
   #value-page .rarity-tab.secret.active{ background: #2c0367; border-color: #1a0133; color: white; }
   #value-page .rarity-tab.limited.active{ background: #00022E; border-color: #00022E; color: white; }
+  #value-page .rarity-tab.prime.active{ background: #800000; border-color: #800000; color:white; }
 
   #value-page .rarity-tab.shiny.active{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
@@ -576,6 +577,8 @@ body{
   #value-page .secret .item-rarity{ background: #2c0367; }
   #value-page .limited .item-rarity, #value-page .premade-item.limited{ border-top: 4px solid #00022E; }
   #value-page .limited .item-rarity{ background:#00022E; }
+  #value-page .prime .item-rarity, #value-page .premade-item.prime{ border-top: 4px solid #800000; }
+  #value-page .prime .item-rarity{ background:#800000; }
 
   #value-page .shiny .item-rarity{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
@@ -1174,6 +1177,7 @@ font-size: 0.95rem;
     #trade-page .rarity-tab.mythic.active{ background:#e74c3c; border-color:#c0392b; color:white; }
     #trade-page .rarity-tab.secret.active{ background:#2c0367; border-color:#1a0133; color:white; }
     #trade-page .rarity-tab.limited.active{ background:#00022E; border-color:#00022E; color:white; }
+    #trade-page .rarity-tab.prime.active{ background:#800000; border-color:#800000; color:white; }
     #trade-page .rarity-tab.shiny.active{
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       border-color: white;
@@ -1281,6 +1285,7 @@ font-size: 0.95rem;
     #trade-page .premade-item.legendary{ border-top: 4px solid #f1c40f; }
     #trade-page .premade-item.mythic{ border-top: 4px solid #e74c3c; }
     #trade-page .premade-item.limited{ border-top: 4px solid #00022E; }
+    #trade-page .premade-item.prime{ border-top:4px solid #800000; }
     #trade-page .premade-item.secret{ border-top: 4px solid #2c0367; }
 
     #trade-page .premade-item.shiny{
@@ -1373,6 +1378,7 @@ font-size: 0.95rem;
     #trade-page .mythic .item-rarity{ background:#e74c3c; color:white; }
     #trade-page .secret .item-rarity{ background:#2c0367; color:white; }
     #trade-page .limited .item-rarity{ background:#00022E; color:white }
+    #trade-page .prime .item-rarity{ background:#800000; color:white }
     #trade-page .shiny .item-rarity{
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       color: white;
@@ -1871,6 +1877,7 @@ font-size: 0.95rem;
         <div class="rarity-tab mythic" onclick="VL_showRarity('mythic')">Mythic</div>
         <div class="rarity-tab secret" onclick="VL_showRarity('secret')">Secret</div>
         <div class="rarity-tab limited" onclick="VL_showRarity('limited')">Limited</div>
+        <div class="rarity-tab prime" onclick="VL_showRarity('prime')">Prime</div>
         <div class="rarity-tab shiny" onclick="VL_showRarity('shiny')">Shiny</div>
         <div class="rarity-tab item" onclick="VL_showRarity('item')">Item</div>
       </div>
@@ -2016,6 +2023,7 @@ font-size: 0.95rem;
           <div class="rarity-tab mythic" onclick="TC_showRarity('mythic')">Mythic</div>
           <div class="rarity-tab secret" onclick="TC_showRarity('secret')">Secret</div>
           <div class="rarity-tab limited" onclick="TC_showRarity('limited')">Limited</div>
+          <div class="rarity-tab prime" onclick="TC_showRarity('prime')">Prime</div>
           <div class="rarity-tab shiny" onclick="TC_showRarity('shiny')">Shiny</div>
           <div class="rarity-tab item" onclick="TC_showRarity('item')">Item</div>
         </div>
@@ -2193,6 +2201,9 @@ font-size: 0.95rem;
         { name: "Titan Sandcastle (Fortified)", minPrice: 70, maxPrice: 70, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028264/sandcastle_fortified.webp" },
         { name: "Titan Sandcastle", minPrice: 70, maxPrice: 70, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028258/sandcastle.webp" },
         { name: "Tub Engineer Camera (atomic)", minPrice: 5, maxPrice: 5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115432/atomic.png" },
+      ],
+      prime: [
+        { name: "Prime Upgraded Titan Cameraman (PUTC)", demand: 10, stability: "Overpaid", imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1789575279/Screenshot_2026-09-16_at_11.54.11_PM.png" },
       ],
       shiny: [
         { name: "Shiny Samurai Camera", minPrice: 0.5, maxPrice: 0.5, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115449/samurai_camera_guy.png" },
