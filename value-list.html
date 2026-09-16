@@ -352,7 +352,7 @@ body{
   #value-page .rarity-tab.legendary.active{ background: #f1c40f; border-color: #f39c12; color: white; }
   #value-page .rarity-tab.mythic.active{ background: #e74c3c; border-color: #e74c3c; color: white; }
   #value-page .rarity-tab.secret.active{ background: #2c0367; border-color: #1a0133; color: white; }
-  #value-page .rarity-tab.Limited.active{ background: #4169E1; border-color: #4169E1; color: white; }
+  #value-page .rarity-tab.limited.active{ background: #4169E1; border-color: #4169E1; color: white; }
 
   #value-page .rarity-tab.shiny.active{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
@@ -574,7 +574,7 @@ body{
   #value-page .mythic .item-rarity{ background: #e74c3c; }
   #value-page .secret .item-rarity, #value-page .premade-item.secret{ border-top: 4px solid #2c0367; }
   #value-page .secret .item-rarity{ background: #2c0367; }
-  #value-page .Limited .item-rarity, #value-page .premade-item.Limited{ border-top: 4px solid #4169E1; }
+  #value-page .limited .item-rarity, #value-page .premade-item.limited{ border-top: 4px solid #4169E1; }
 
   #value-page .shiny .item-rarity{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
@@ -1172,7 +1172,7 @@ font-size: 0.95rem;
     #trade-page .rarity-tab.legendary.active{ background:#f1c40f; border-color:#f39c12; color:white; }
     #trade-page .rarity-tab.mythic.active{ background:#e74c3c; border-color:#c0392b; color:white; }
     #trade-page .rarity-tab.secret.active{ background:#2c0367; border-color:#1a0133; color:white; }
-    #trade-page .rarity-tab.Limited.active{ background:#4169E1; border-color:#4169E1; color:white; }
+    #trade-page .rarity-tab.limited.active{ background:#4169E1; border-color:#4169E1; color:white; }
     #trade-page .rarity-tab.shiny.active{
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       border-color: white;
@@ -2014,7 +2014,7 @@ font-size: 0.95rem;
           <div class="rarity-tab legendary" onclick="TC_showRarity('legendary')">Legendary</div>
           <div class="rarity-tab mythic" onclick="TC_showRarity('mythic')">Mythic</div>
           <div class="rarity-tab secret" onclick="TC_showRarity('secret')">Secret</div>
-          <div class="rarity-tab Limited" onclick="TC_showRarity('Limited')">Limited</div>
+          <div class="rarity-tab limited" onclick="TC_showRarity('limited')">Limited</div>
           <div class="rarity-tab shiny" onclick="TC_showRarity('shiny')">Shiny</div>
           <div class="rarity-tab item" onclick="TC_showRarity('item')">Item</div>
         </div>
@@ -2433,7 +2433,7 @@ font-size: 0.95rem;
 (function(){
   'use strict';
   const ROOT = document.getElementById('value-page');
-  const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'Limited', 'shiny', 'item'];
+  const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'limited', 'shiny', 'item'];
   const selectedRarities = new Set();
   let currentFilter = '';
   let currentSort = 'highToLow';
