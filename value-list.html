@@ -527,6 +527,7 @@ body{
   .stability-dropping{ border-color: rgba(244,67,54,.32); background: rgba(244,67,54,.11); }
   .stability-fluctuating{ border-color: rgba(255,152,0,.30); background: rgba(255,152,0,.10); }
   .stability-overpaid{ border-color: rgba(2, 48, 32,.30); background: rgba(2, 48, 32.10); }
+  .stability-gatekept{ border-color: rgba(0, 0, 139,.30); background: rgba(0, 0, 139.10); }
   .stability-underpaid{ border-color: rgba(139, 0, 0.32); background: rgba(139, 0, 0.11); }
   #trade-page .stats-chips .item-price{ font-size: inherit; margin: 0; }
 
@@ -2121,8 +2122,6 @@ font-size: 0.95rem;
         { name: "Infected Titan Speaker", minPrice: 45, maxPrice: 45, demand: 6, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481761/infected.png" },
         { name: "Toxic Titan Camera", minPrice: 18, maxPrice: 18, demand: 6, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029904/tutc.webp" },
         { name: "Hero Speaker (revived)", minPrice: 15, maxPrice: 15, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115442/Hero_Revive.png" },
-        { name: "Dark Singularity", minPrice: 10, maxPrice: 10, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115437/dark_singularity.png" },
-        { name: "Radiant Singularity", minPrice: 90, maxPrice: 90, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473452/Radiant.webp" },
         { name: "Glitch Camera", minPrice: 7, maxPrice: 7, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Glitched_camera_guy.png" },
         { name: "Bunny Racer Camera", minPrice: 90, maxPrice: 90, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027857/bunnyracer.webp" },
         { name: "Bunny Racer Camera MK.2", minPrice: 112.5, maxPrice: 112.5, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027864/bunnyracermk.2.webp" },
@@ -2148,22 +2147,23 @@ font-size: 0.95rem;
         { name: "Red Laser Camera", minPrice: 8, maxPrice: 8, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029961/laser.webp" },
         { name: "Engineer Camera", minPrice: 12.5, maxPrice: 12.5, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029955/engineer.webp" },
         { name: "Titan Cinema", minPrice: 7, maxPrice: 7, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029897/cinema.webp" },
-        { name: "Frankengineer (shocked)", minPrice: 5, maxPrice: 5, demand: 1, stability:"Underpaid",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/frankengineer.png" },
-        { name: "Frankengineer", minPrice: 2, maxPrice: 2, demand: 1, stability:"Underpaid",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/frankengineer.png" },
-        { name: "Chief Scientist Camera (command)", minPrice: 2, maxPrice: 2, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473451/chief_camera.webp" },
+        { name: "Frankengineer (shocked)", minPrice: 1, maxPrice: 1, demand: 1, stability:"Underpaid",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/frankengineer.png" },
+        { name: "Frankengineer", minPrice: 1, maxPrice: 1, demand: 1, stability:"Underpaid",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/frankengineer.png" },
+        { name: "Chief Scientist Camera (command)", minPrice: 1, maxPrice: 1, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473451/chief_camera.webp" },
         { name: "Titan TV", minPrice: 4, maxPrice: 4, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115453/Titan_Tv.png" },
         { name: "Titan Speaker", minPrice: 4, maxPrice: 4, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115453/Titan_speaker.png" },
         { name: "Titan Camera", minPrice: 4, maxPrice: 4, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115500/Titan_Camera.png" },
-        { name: "Pirate Speaker Woman (cannon)", minPrice: 2, maxPrice: 2, demand: 1, stability:"Underpaid",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115446/Pirate.png" }
+        { name: "Pirate Speaker Woman (cannon)", minPrice: 1, maxPrice: 1, demand: 1, stability:"Underpaid",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115446/Pirate.png" },
+        { name: "Prototype Camera Toilet", minPrice: 6, maxPrice: 6, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483974/prototyle.png" },
       ],
       secret: [
-        { name: "Zombie Titan TV", minPrice: 540, maxPrice: 540, demand: 2.5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025840/Zombie_Titan_Tv_man.webp" },
+        { name: "Zombie Titan TV", minPrice: 540, maxPrice: 540, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025840/Zombie_Titan_Tv_man.webp" },
         { name: "Zombie Titan TV (enraged)", minPrice: 450, maxPrice: 450, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025844/Zombie_Titan_Tv_man_Enraged.webp" },
-        { name: "Titan Samurai (final)", minPrice: 405, maxPrice: 405, demand: 3, stability: "Underpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025806/Samurai_Final.webp" },
-        { name: "Slotman", minPrice: 2430, maxPrice: 2430, demand: 6, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025732/Slotman.webp" },
+        { name: "Titan Samurai (final)", minPrice: 405, maxPrice: 405, demand: 2, stability: "Underpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025806/Samurai_Final.webp" },
+        { name: "Slotman", minPrice: 2430, maxPrice: 2430, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025732/Slotman.webp" },
         { name: "Slotman (highroller)", minPrice: 3420, maxPrice: 3420, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025726/Slotman_highRoller.webp" },
         { name: "Energy TV Woman (scythe)", minPrice: 1080, maxPrice: 1080, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025688/Scythe_Energy_Tv_Women.webp" },
-        { name: "Enhanced Energy TV", minPrice: 945, maxPrice: 945, demand: 4, stability: "Underpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
+        { name: "Enhanced Energy TV", minPrice: 945, maxPrice: 945, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
         { name: "Energy TV", minPrice: 855, maxPrice: 855, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
         { name: "Titan Drill", minPrice: 405, maxPrice: 405, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/f_auto,q_auto/Drill_man" },
         { name: "Bomb Woman", minPrice: 1620, maxPrice: 1620, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025489/Bombwomen.webp" },
@@ -2187,10 +2187,11 @@ font-size: 0.95rem;
         { name: "Tub Engineer Camera", minPrice: 2.5, maxPrice: 2.5, demand: 2, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115432/atomic.png" },
         { name: "Neko (fallen)", minPrice: 1260, maxPrice: 1260, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027722/Neko_Tv_Fallen.webp" },
         { name: "Neko TV", minPrice: 225, maxPrice: 225, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027734/Nekotv.webp" },
-        { name: "Prototype Camera Toilet", minPrice: 6, maxPrice: 6, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483974/prototyle.png" },
         { name: "Titan Sandcastle (Fortified)", minPrice: 70, maxPrice: 70, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028264/sandcastle_fortified.webp" },
         { name: "Titan Sandcastle", minPrice: 75, maxPrice: 75, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028258/sandcastle.webp" },
         { name: "Tub Engineer Camera (atomic)", minPrice: 5, maxPrice: 5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115432/atomic.png" },
+        { name: "Radiant Singularity", minPrice: 225, maxPrice: 225, demand: 3, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473452/Radiant.webp" },
+        { name: "Dark Singularity", minPrice: 20, maxPrice: 20, demand: 3, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115437/dark_singularity.png" },
       ],
       shiny: [
         { name: "Shiny Samurai Camera", minPrice: 0.5, maxPrice: 0.5, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115449/samurai_camera_guy.png" },
@@ -2211,7 +2212,7 @@ font-size: 0.95rem;
         { name: "Shiny Titan Samurai (head)", minPrice: 30, maxPrice: 30, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028282/samurai_titan_head.webp" },
         { name: "Shiny Dark Projector", minPrice: 225, maxPrice: 225, demand: 5, stability: "Overpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473452/dark_projector.webp" },
         { name: "Shiny Dark Projector (rental)", minPrice: 270, maxPrice: 270, demand: 5, stability: "Overpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473452/dark_projector.webp" },
-        { name: "Shiny Titan Samurai (final)", minPrice: 765, maxPrice: 765, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025806/Samurai_Final.webp" },
+        { name: "Shiny Titan Samurai (final)", minPrice: 720, maxPrice: 720, demand: 1, stability: "Underpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025806/Samurai_Final.webp" },
         { name: "Shiny Clock Woman (future)", minPrice: 3600, maxPrice: 3600, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/f_auto,q_auto/Clock_Women_future" },
         { name: "Shiny Slotman", minPrice: 2430, maxPrice: 2430, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025732/Slotman.webp" },
         { name: "Shiny Slotman (highroller)", minPrice: 7650, maxPrice: 7650, demand: 4, stability: "Overpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025726/Slotman_highRoller.webp" },
@@ -2226,9 +2227,9 @@ font-size: 0.95rem;
         { name: "Shiny Energy TV", realRarity: "secret", minPrice: 945, maxPrice: 945, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
         { name: "Shiny Clock Woman", realRarity: "secret", minPrice: 540, maxPrice: 540, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025412/Clock_Women.webp" },
         { name: "Shiny Dark Singularity", minPrice: 20, maxPrice: 20, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115437/dark_singularity.png" },
-        { name: "Shiny Radiant Singularity", minPrice: 450, maxPrice: 450, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473452/Radiant.webp" },
+        { name: "Shiny Radiant Singularity", minPrice: 495, maxPrice: 495, demand: 3, stability:"Gatekept", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473452/Radiant.webp" },
         { name: "Shiny Golden Scientist TV", realRarity: "epic", minPrice: 270, maxPrice: 270, demand: 3, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028657/golden_scientist.webp" },
-        { name: "Shiny Upgraded Titan TV", realRarity: "mythic", minPrice: 180, maxPrice: 180, demand: 3, stability: "Underpaid",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029463/uttv.webp" },
+        { name: "Shiny Upgraded Titan TV", realRarity: "mythic", minPrice: 180, maxPrice: 180, demand: 3, stability: "Stable",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029463/uttv.webp" },
         { name: "Shiny Dave", realRarity: "mythic", minPrice: 90, maxPrice: 90, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029968/dave.webp" },
         { name: "Shiny Golden Hero Speaker (revived)", realRarity: "mythic", minPrice: 180, maxPrice: 180, demand: 5.5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028665/golden_hero.webp" },
         { name: "Shiny Titan Sandcastle (fortified)", realRarity: "mythic", minPrice: 270, maxPrice: 270, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789028264/sandcastle_fortified.webp" },
@@ -2285,7 +2286,7 @@ font-size: 0.95rem;
         { name: "Summer Pass", minPrice: 55, maxPrice: 55, demand: 1, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1789616575/Summer_Pass.png" },
         { name: "Summer Key", minPrice: 2.5, maxPrice: 2.5, demand: 1, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1789616179/Summer_Key.png" },
         { name: "Eggshell", minPrice: 0.35, maxPrice: 0.35, demand: 1, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/f_auto,q_auto/Egg_Shell" },
-        { name: "Parasite", minPrice: 50, maxPrice: 50, demand: 3, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/f_auto,q_auto/Parasite" },
+        { name: "Parasite", minPrice: 55, maxPrice: 55, demand: 3, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/f_auto,q_auto/Parasite" },
         { name: "Supply Override Chip", minPrice: 4, maxPrice: 4, demand: 6, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115436/Chip.webp" },
         { name: "Torii Gate", minPrice: 8, maxPrice: 8, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483460/Toriigate.webp" },
         { name: "Supply Crate BluePrint", minPrice: 12.5, maxPrice: 12.5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789555294/blueprint.png" },
@@ -2295,7 +2296,7 @@ font-size: 0.95rem;
         { name: "Neko Dance", minPrice: 90, maxPrice: 90, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480684/nekodance.webp" },
         { name: "Black Market VIP Token", minPrice: 35, maxPrice: 35, demand: 2, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480969/blackvip.webp" },
         { name: "Energy Blade", minPrice: 85, maxPrice: 85, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/Energy_Blade.webp" },
-        { name: "Doom Blade", minPrice: 1080, maxPrice: 1080, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789030010/Doomblade.webp" },
+        { name: "Doom Blade", minPrice: 1080, maxPrice: 1080, demand: 2, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789030010/Doomblade.webp" },
         { name: "Chainsaw Arm", minPrice: 2, maxPrice: 2, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115435/Chainsaw_arm.webp" },
         { name: "Crimson Dagger", minPrice: 25, maxPrice: 25, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115437/crimson_dagger.png" },
         { name: "Overcharged Axe", minPrice: 1, maxPrice: 1, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115446/Overcharged_axe.webp" },
@@ -2305,33 +2306,33 @@ font-size: 0.95rem;
         { name: "Titanium Frame", minPrice: 10, maxPrice: 10, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115453/Titanium_frame.webp" },
         { name: "Glitch Core", minPrice: 15, maxPrice: 15, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789112234/Glitched_Core.png" },
         { name: "Chain Link", minPrice: 0.75, maxPrice: 0.75, demand: 6, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115434/chain_link.png" },
-        { name: "Gas Can", minPrice: 0.25, maxPrice: 0.25, demand: 2, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Gas_can.webp" },
+        { name: "Gas Can", minPrice: 0.25, maxPrice: 0.25, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Gas_can.webp" },
         { name: "Samurai Plating", minPrice: 0.01, maxPrice: 0.01, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789499992/Samurai_Plating.webp" },
-        { name: "Black Market Key", minPrice: 1.5, maxPrice: 1.5, demand: 6, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115433/black_market_key.webp" },
+        { name: "Black Market Key", minPrice: 1.35, maxPrice: 1.35, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115433/black_market_key.webp" },
         { name: "Chainsword", minPrice: 8, maxPrice: 8, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115435/Chainsword.webp" },
-        { name: "Gambler Dance Emote", minPrice: 50, maxPrice: 50, demand: 2, imageUrl: "https://i.ibb.co/vFzSj2N/Skrinsot-05-01-2026-173655.png" },
+        { name: "Gambler Dance Emote", minPrice: 50, maxPrice: 50, demand: 1, imageUrl: "https://i.ibb.co/vFzSj2N/Skrinsot-05-01-2026-173655.png" },
         { name: "Surfer Emote", minPrice: 5, maxPrice: 5, demand: 1, imageUrl: "https://i.ibb.co/JWGTRxH4/Skrinsot-11-01-2026-192339.png" },
         { name: "Ice Cream Cart Emote", minPrice: 2, maxPrice: 2, demand: 1, imageUrl: "https://i.ibb.co/BK6JwCFk/Skrinsot-11-01-2026-195042.png" },
         { name: "Coconut Launch Emote", minPrice: 35, maxPrice: 35, demand: 1, imageUrl: "https://i.ibb.co/rRxwT2vB/Skrinsot-11-01-2026-192312.png" },
         { name: "Overcharged Blaster", minPrice: 10, maxPrice: 10, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115446/Overcharged_blaster.webp" },
         { name: "Hextech Arm", minPrice: 3, maxPrice: 3, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115443/Hextecharm.webp" },
         { name: "The Honored One Emote", minPrice: 15, maxPrice: 15, demand: 1, imageUrl: "https://i.ibb.co/h1Z9YxVS/Skrinsot-05-01-2026-173615.png" },
-        { name: "x2 Coins Token", minPrice: 30, maxPrice: 30, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480969/coins.webp" },
+        { name: "x2 Coins Token", minPrice: 30, maxPrice: 30, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480969/coins.webp" },
         { name: "Ultra Lucky Token", minPrice: 30, maxPrice: 30, demand: 3, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480970/ultra.webp" },
-        { name: "VIP Token", minPrice: 20, maxPrice: 20, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480970/vip.webp" },
-        { name: "x2 Speed Token", minPrice: 25, maxPrice: 25, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480968/2x.webp" },
+        { name: "VIP Token", minPrice: 20, maxPrice: 20, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480970/vip.webp" },
+        { name: "x2 Speed Token", minPrice: 25, maxPrice: 25, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480968/2x.webp" },
         { name: "Lucky Token", minPrice: 15, maxPrice: 15, demand: 2, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481108/lucky.webp" },
         { name: "Shell Trophy", minPrice: 30, maxPrice: 30, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483458/shelltrophe.webp" },
         { name: "Hot Coal", minPrice: 65, maxPrice: 65, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115435/Charcoal.webp" },
         { name: "Haunted Branch", minPrice: 12, maxPrice: 12, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483452/branch.webp" },
         { name: "Take The L Emote", minPrice: 12.5, maxPrice: 12.5, demand: 1, imageUrl: "https://i.ibb.co/XkSWPKJ3/Skrinsot-05-01-2026-173636.png" },
-        { name: "+300 Storage Token", minPrice: 15, maxPrice: 15, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481111/300.webp" },
+        { name: "+300 Storage Token", minPrice: 15, maxPrice: 15, demand: 2, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481111/300.webp" },
         { name: "Hammer", minPrice: 9, maxPrice: 9, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115454/Titan_s_hammer.webp" },
-        { name: "Katana", minPrice: 10, maxPrice: 10, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481612/katana_Item.webp" },
+        { name: "Katana", minPrice: 10, maxPrice: 10, demand: 3, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481612/katana_Item.webp" },
         { name: "Champion Trophy", minPrice: 4, maxPrice: 4, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115457/Trophy.webp" },
         { name: "Photon Grenade", minPrice: 7, maxPrice: 7, demand: 2, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115446/Photon_Grenade.webp" },
         { name: "Upgraded Blaster", minPrice: 9, maxPrice: 9, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115454/Titan_s_blaster.webp" },
-        { name: "Glitch Mainframe", minPrice: 3, maxPrice: 3, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Glitched_Frame.webp" },
+        { name: "Glitch Mainframe", minPrice: 3, maxPrice: 3, demand: 2, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Glitched_Frame.webp" },
         { name: "Toxic Barrel", minPrice: 1, maxPrice: 1, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115455/toxic_barrel.webp" },
         { name: "Titan's Speaker", minPrice: 8, maxPrice: 8, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115454/Titan_s_speaker.webp" },
         { name: "Cannon", minPrice: 0.33, maxPrice: 0.33, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115433/cannon.webp" },
@@ -2346,7 +2347,7 @@ font-size: 0.95rem;
         { name: "Disabler Gun", minPrice: 0.25, maxPrice: 0.25, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115437/Disablers_gun.webp" },
         { name: "Orbital Drone", minPrice: 1, maxPrice: 1, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115445/orbital_laser.webp" },
         { name: "Upgraded Raid Key", minPrice: 1, maxPrice: 1, demand: 7, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115457/Upgraded_raid_key.png" },
-        { name: "Gold Bar", minPrice: 1.25, maxPrice: 1.25, demand: 6, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Gold_bar.png" },
+        { name: "Gold Bar", minPrice: 1.25, maxPrice: 1.25, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Gold_bar.png" },
         { name: "Mace", minPrice: 0.5, maxPrice: 0.5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483707/Mace_ITem.webp" },
         { name: "Titan's Core", minPrice: 3, maxPrice: 3, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115452/Titan_core.webp" },
         { name: "Plunger Potion", minPrice: 1, maxPrice: 1, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115447/Plunger_potion.png" },
@@ -2370,11 +2371,12 @@ font-size: 0.95rem;
     if (v === 'dropping') return 'Dropping';
     if (v === 'fluctuating') return 'Fluctuating';
     if (v === 'overpaid') return 'Overpaid';
+    if (v === 'gatekept') return 'Gatekept';
     if (v === 'underpaid') return 'Underpaid';
     return 'Stable';
   }
   function stabilityClass(value){
-    return normalizeStability(value).toLowerCase(); // stable | rising | dropping | fluctuating | overpaid | underpaid
+    return normalizeStability(value).toLowerCase(); // stable | rising | dropping | fluctuating | overpaid | underpaid | gatekept
   }
 
   function clampNumber(n, min, max){
@@ -2416,6 +2418,7 @@ font-size: 0.95rem;
     if (s === 'Dropping') return [255, 92, 92];        // red
     if (s === 'Fluctuating') return [255, 193, 7];     // amber
     if (s === 'Overpaid') return [2, 48, 32];          // dark green
+    if (s === 'Gatekept') return [0, 0, 139];          // dark blue
     if (s === 'Underpaid') return [139, 0, 0];         // dark red
     return [120, 200, 255];                            // Stable: blue/cyan
   }
