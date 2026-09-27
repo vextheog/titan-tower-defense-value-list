@@ -2686,19 +2686,41 @@ font-size: 0.95rem;
         <div class="item-name">${item.name}</div>
         <div class="item-rarity"><span>${rarity.charAt(0).toUpperCase() + rarity.slice(1)}</span></div>
 
-        <div class="stats-chips">
-          <div class="stat-chip chip-price">
-  <span class="stat-label stat-label-with-icon">
-    <img src="https://res.cloudinary.com/rkxclrso/image/upload/v1790498005/Upgraded_Raid_Key.png" alt="" class="stat-label-icon">Value:
-  </span>
-  <span class="stat-value"> ${ coinsHTML } </span>
+<div class="stats-chips">
+  <!-- Value -->
+  <div class="stat-chip chip-price">
+    <span class="stat-label stat-label-with-icon">
+      <img src="https://res.cloudinary.com/rkxclrso/image/upload/v1790498005/Upgraded_Raid_Key.png" 
+           alt="" class="stat-label-icon">Value:
+    </span>
+    <span class="stat-value">${coinsHTML}</span>
+  </div>
+
+  <!-- Gems -->
+  <div class="stat-chip chip-gem">
+    <span class="stat-label">Gems:</span>
+    <span class="stat-value">${gemsHTML}</span>
+  </div>
+
+  <!-- UTTVs -->
+  <div class="stat-chip chip-uttvs">
+    <span class="stat-label">UTTVs:</span>
+    <span class="stat-value">${uttvsText}</span>
+  </div>
+
+  <!-- Demand -->
+  <div class="stat-chip chip-demand" style="${demandStyle}">
+    <span class="stat-label">Demand:</span>
+    <span class="stat-value">${demandText}</span>
+    <span class="stat-suffix">/10</span>
+  </div>
+
+  <!-- Stability -->
+  <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}">
+    <span class="stat-label">Stability:</span>
+    <span class="stat-value">${stabilityText}</span>
+  </div>
 </div>
-          <div class="stat-chip chip-gem"><span class="stat-label">Gems:</span><span class="stat-value">${gemsHTML}</span></div>
-          <div class="stat-chip chip-uttvs"><span class="stat-label">UTTVs:</span><span class="stat-value">${uttvsText}</span></div>
-          <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand:</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
-          <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}"><span class="stat-label">Stability:</span><span class="stat-value">${stabilityText}</span></div>
-        </div>
-      `;
 
       container.appendChild(itemElement);
     });
