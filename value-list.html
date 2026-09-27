@@ -770,6 +770,21 @@ body{
     #value-page.pc-mode{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
+  .stat-label-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-label-icon {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+}
 </style>
 <style>
 
@@ -2643,21 +2658,6 @@ font-size: 0.95rem;
       const coinsHTML = (item.minPrice === item.maxPrice)
         ? item.minPrice.toFixed(2)
         : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPrice.toFixed(2)}`;
-       .stat-label-with-icon {
-        display: inline-flex;
-        align-items: center;
-         gap: 4px;
-       }
-
-       .stat-label-icon {
-       width: 14px !important;
-       height: 14px !important;
-       max-width: 14px !important;
-       max-height: 14px !important;
-       object-fit: contain !important;
-       vertical-align: middle !important;
-       display: inline-block !important;
-       }
 
       const gemsHTML = (item.minPrice === item.maxPrice)
          ? (item.minPrice * GEM_RATE).toFixed(0)
@@ -2687,7 +2687,12 @@ font-size: 0.95rem;
         <div class="item-rarity"><span>${rarity.charAt(0).toUpperCase() + rarity.slice(1)}</span></div>
 
         <div class="stats-chips">
-          <div class="stat-chip chip-price"><span class="stat-label stat-label-with-icon"><img src="https://res.cloudinary.com/rkxclrso/image/upload/v1790498005/Upgraded_Raid_Key.png" alt="" class="stat-label-icon">Value:</span><span class="stat-value"> ${ coinsHTML } </span></div>
+          <div class="stat-chip chip-price">
+  <span class="stat-label stat-label-with-icon">
+    <img src="https://res.cloudinary.com/rkxclrso/image/upload/v1790498005/Upgraded_Raid_Key.png" alt="" class="stat-label-icon">Value:
+  </span>
+  <span class="stat-value"> ${ coinsHTML } </span>
+</div>
           <div class="stat-chip chip-gem"><span class="stat-label">Gems:</span><span class="stat-value">${gemsHTML}</span></div>
           <div class="stat-chip chip-uttvs"><span class="stat-label">UTTVs:</span><span class="stat-value">${uttvsText}</span></div>
           <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand:</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
