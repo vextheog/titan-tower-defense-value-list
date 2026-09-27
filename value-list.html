@@ -2131,6 +2131,8 @@ font-size: 0.95rem;
 
   <script>
   const CURRENCY_RATE = 90;
+  const GEM_RATE = 100;   // 1 Value = 100 Gems
+
 
   const premadeItems = {
     epic: [
@@ -2620,7 +2622,9 @@ font-size: 0.95rem;
         ? item.minPrice.toFixed(2)
         : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPrice.toFixed(2)}`;
 
-      const gemsHTML = coinsHTML;
+      const gemsHTML = (item.minPrice === item.maxPrice)
+         ? (item.minPrice * GEM_RATE).toFixed(0)
+         : `${(item.minPrice * GEM_RATE).toFixed(0)}<span class="range-sep"> - </span><wbr>${(item.maxPrice * GEM_RATE).toFixed(0)}`;
 
       const uttvsText = (item.minPrice === item.maxPrice)
         ? minPriceC2.toFixed(2)
