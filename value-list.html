@@ -424,7 +424,7 @@ body{
   }
 
   #value-page .premade-item .item-price{ margin-bottom: 3px; font-weight: bold; font-size: 1rem; color: #69db7c; }
-  #value-page .premade-item .gem-price{ margin-bottom: 3px: font-weight: bold: font-size: 1rem: color: #800080; }
+  #value-page .premade-item .gem-price{ margin-bottom: 3px; font-weight: bold; font-size: 1rem; color: #800080; }
   #value-page .price-min{ color: #69db7c; }
   #value-page .price-max{ color: #69db7c; }
 
@@ -441,10 +441,11 @@ body{
     margin-bottom: 6px;
     font-size: 0.85rem;
     color: #800080;
-    background: rgba(128, 0, 128);
+    background: rgba(128, 0, 128, 0.3);
     padding: 3px 5px;
     border-radius: 4px;
     line-height: 1.3;
+  }
 
   #value-page .premade-item .item-demand{ margin-bottom: 6px; color: #90a4ae; font-size: 0.8rem; }
   #value-page .premade-item .item-demand-value{ font-weight: bold; color: #64b5f6; }
@@ -2619,9 +2620,7 @@ font-size: 0.95rem;
         ? item.minPrice.toFixed(2)
         : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPrice.toFixed(2)}`;
 
-      const gemsHTML = (item.minPrice === item.MaxPrice)
-        ? item.minPrice.toFixed(2)
-        : `${item.MinPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${(item.maxPrice.toFixed(2)}`;
+      const gemsHTML = coinsHTML;
 
       const uttvsText = (item.minPrice === item.maxPrice)
         ? minPriceC2.toFixed(2)
