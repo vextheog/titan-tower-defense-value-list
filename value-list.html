@@ -424,6 +424,7 @@ body{
   }
 
   #value-page .premade-item .item-price{ margin-bottom: 3px; font-weight: bold; font-size: 1rem; color: #69db7c; }
+  #value-page .premade-item .gem-price{ margin-bottom: 3px: font-weight: bold: font-size: 1rem: color: #800080; }
   #value-page .price-min{ color: #69db7c; }
   #value-page .price-max{ color: #69db7c; }
 
@@ -436,6 +437,14 @@ body{
     border-radius: 4px;
     line-height: 1.3;
   }
+  #value-page .premade-item .gem-price-secondary{
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    color: #800080;
+    background: rgba(128, 0, 128);
+    padding: 3px 5px;
+    border-radius: 4px;
+    line-height: 1.3;
 
   #value-page .premade-item .item-demand{ margin-bottom: 6px; color: #90a4ae; font-size: 0.8rem; }
   #value-page .premade-item .item-demand-value{ font-weight: bold; color: #64b5f6; }
@@ -480,12 +489,20 @@ body{
     min-width:0;
   }
 
+  .stat-chip .stat-gems{
+    font-weight:950;
+    color:#fff;
+    min-width:0;
+  }
+
   .stat-chip.chip-price,
+  .stat-chip.chip-gems,
   .stat-chip.chip-uttvs{
     white-space:normal;
   }
 
   .stat-chip.chip-price .stat-value,
+  .stat-chip.chip-gems .stat-value,
   .stat-chip.chip-uttvs .stat-value{
     white-space:normal;
     overflow-wrap:normal;
@@ -498,6 +515,7 @@ body{
   }
 
   .stat-chip.chip-price .range-sep,
+  .stat-chip.chip-gems  .range-sep,
   .stat-chip.chip-uttvs .range-sep{
     white-space:nowrap;
   }
@@ -516,6 +534,7 @@ body{
 
 
   .chip-price{ border-color: rgba(100,181,246,.36); background: rgba(100,181,246,.12); }
+  .chip-gems{ border-color: rgba(128, 0, 128,.36); background: rgba(128, 0, 128,.12);  }
   .chip-uttvs{ border-color: rgba(187,134,252,.36); background: rgba(187,134,252,.12); }
   .chip-demand{ border-color: rgba(0,230,118,.30); background: rgba(0,230,118,.10); }
   .chip-total{ border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
@@ -530,6 +549,7 @@ body{
   .stability-gatekept{ border-color: rgba(0, 0, 139,.30); background: rgba(0, 0, 139.10); }
   .stability-underpaid{ border-color: rgba(139, 0, 0.32); background: rgba(139, 0, 0.11); }
   #trade-page .stats-chips .item-price{ font-size: inherit; margin: 0; }
+  #trade-page .stats-chips .gem-price{ font-size: inherit; margin: 0; }
 
 
   #trade-page .items-list .stat-chip{
@@ -1109,8 +1129,10 @@ font-size: 0.95rem;
   z-index: 2;
 }
 
-#trade-page .item-price{ font-weight: bold; color: #69db7c; font-size: 0.95rem; margin-bottom: 4px; }
+    #trade-page .item-price{ font-weight: bold; color: #69db7c; font-size: 0.95rem; margin-bottom: 4px; }
     #trade-page .item-price-range{ font-size: 0.85rem; color: #90a4ae; }
+    #trade-page .gem-price{ font-weight: bold; color: #800080; font-size: 0.95rem; margin-bottom: 4px; }
+    #trade-page .gem-price-range{ font-size: 0.85rem; color: #800080; }
     #trade-page .item-demand{ display: flex; align-items: center; font-size: 0.85rem; color: #90a4ae; }
     #trade-page .item-demand-value{ font-weight: bold; color: #64b5f6; margin-left: 4px; }
 
@@ -1335,6 +1357,28 @@ font-size: 0.95rem;
       color: #bbd8ff;
       font-weight: 600;
     }
+
+    #trade-page .premade ,gem-price{
+      font-weight: bold;
+      fontsize: 1rem;
+      margin: 5px 0;
+      color: #800080;
+    }
+
+    #trade-page .premade-item ,gem-price-secondary{
+      margin: 5px 0;
+      font-size: 0.85rem;
+      color: #800080;
+      background: rgba(30, 42, 74, 0.3);
+      padding: 3px 5px;
+      border-radius: 4px;
+      line-height: 1.3;
+    }
+    #trade-page .premade-item .gem-price-secondary .price-min-secondary, #trade-page .premade-item .gem-price-secondary .price-max-secondary{
+      color: #800080;
+      font-weight: 600;
+    }
+      
 
     #trade-page .premade-item .item-demand{ margin: 5px 0; font-size: 0.8rem; color: #90a4ae; }
     #trade-page .premade-item .item-demand-value{ font-weight: bold; color: #64b5f6; }
@@ -2346,7 +2390,7 @@ font-size: 0.95rem;
         { name: "Chains", minPrice: 0.5, maxPrice: 0.5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115434/Chain.webp" },
         { name: "Disabler Gun", minPrice: 0.25, maxPrice: 0.25, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115437/Disablers_gun.webp" },
         { name: "Orbital Drone", minPrice: 1, maxPrice: 1, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115445/orbital_laser.webp" },
-        { name: "Upgraded Raid Key", minPrice: 1, maxPrice: 1, demand: 7, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115457/Upgraded_raid_key.png" },
+        { name: "Upgraded Raid Key", minPrice: 1, maxPrice: 1, gemPrice: 100, demand: 7, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115457/Upgraded_raid_key.png" },
         { name: "Gold Bar", minPrice: 1.35, maxPrice: 1.35, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115440/Gold_bar.png" },
         { name: "Mace", minPrice: 0.5, maxPrice: 0.5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483707/Mace_ITem.webp" },
         { name: "Titan's Core", minPrice: 3, maxPrice: 3, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115452/Titan_core.webp" },
@@ -2361,7 +2405,6 @@ font-size: 0.95rem;
         { name: "Scrеw", minPrice: 0.15, maxPrice: 0.15, demand: 7, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483457/screw.png" },
         { name: "Red Flag", minPrice: 1, maxPrice: 1, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115448/red_flag.png" },
         { name: "Zombie Key", minPrice: 0.5, maxPrice: 0.5, demand: 3, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115459/Zombie_key.webp" },
-        { name: "Gems", minPrice: 0.01, maxPrice: 0.01, demand: 2, imageUrl: "https://res.cloudinary.com/pibfmutx/image/upload/f_auto,q_auto/gems" },
         { name: "Crate Luck Potion", minPrice: 45, maxPrice: 45, demand: 1, imageUrl: "https://i.postimg.cc/zGJ2fn8f/adfas.webp" }
     ]
   };
@@ -2576,6 +2619,10 @@ font-size: 0.95rem;
         ? item.minPrice.toFixed(2)
         : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPrice.toFixed(2)}`;
 
+      const gemsText = (item.minPrice === item.MaxPrice)
+        ? item.minPrice.toFixed(2)
+        : `${item.MinPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>$(item.maxPrice.toFixed(2)}`;
+
       const uttvsText = (item.minPrice === item.maxPrice)
         ? minPriceC2.toFixed(2)
         : `${minPriceC2.toFixed(2)}<span class="range-sep"> - </span><wbr>${maxPriceC2.toFixed(2)}`;
@@ -2601,6 +2648,7 @@ font-size: 0.95rem;
 
         <div class="stats-chips">
           <div class="stat-chip chip-price"><span class="stat-label">Value:</span><span class="stat-value">${coinsHTML}</span></div>
+          <div class="stat-chip chip-gem"><span class="stat-label">Value:</span><span class="stat-value">${gemsHTML}</span></div>
           <div class="stat-chip chip-uttvs"><span class="stat-label">UTTVs:</span><span class="stat-value">${uttvsText}</span></div>
           <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand:</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
           <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}"><span class="stat-label">Stability:</span><span class="stat-value">${stabilityText}</span></div>
@@ -2783,6 +2831,10 @@ font-size: 0.95rem;
           ? item.minPrice.toFixed(2)
           : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPrice.toFixed(2)}`;
 
+        const gemsHTML = (item.minPrice === item.maxPrice)
+          ? item.minPrice.toFixed(2)
+          : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPricetoFixed(2)}`;
+        
         const uttvsText = (item.minPrice === item.maxPrice)
           ? minPriceC2.toFixed(2)
           : `${minPriceC2.toFixed(2)}<span class="range-sep"> - </span><wbr>${maxPriceC2.toFixed(2)}`;
@@ -2838,6 +2890,7 @@ font-size: 0.95rem;
 
             <div class="stats-chips">
               <div class="stat-chip chip-price"><span class="stat-label">Value:</span><span class="stat-value">${coinsHTML}</span></div>
+              <div class="stat-chip chip-gems"><span class="stat-label">Value:</span><span class="stat-value">${gemsHTML}</span></div>
               <div class="stat-chip chip-uttvs"><span class="stat-label">UTTVs:</span><span class="stat-value">${uttvsText}</span></div>
               <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand:</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
               <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}"><span class="stat-label">Stability:</span><span class="stat-value">${stabilityText}</span></div>
@@ -3134,6 +3187,7 @@ font-size: 0.95rem;
             <div class="stats-chips">
               <div class="stat-chip chip-total"><span class="stat-label">Total</span><span class="stat-value item-price">${totalPrice.toFixed(2)}</span></div>
               <div class="stat-chip chip-price"><span class="stat-label">Value</span><span class="stat-value item-value">${unitValue}</span></div>
+              <div class="stat-chip chip-gems"><span class="stat-label">Value</span><span class="stat-value item-value">${unitValue}</span></div>
               <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
               <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}"><span class="stat-label">Stability</span><span class="stat-value">${stabilityText}</span></div>
             </div>
@@ -3412,6 +3466,7 @@ theirTotal += rowTotal;
           <div class="stats-chips">
             <div class="stat-chip chip-total"><span class="stat-label">Total</span><span class="stat-value item-price">${totalPrice.toFixed(2)}</span></div>
             <div class="stat-chip chip-price"><span class="stat-label">Value</span><span class="stat-value item-value">${unitValue}</span></div>
+            <div class="stat-chip chip-gems"><span class="stat-label">Value</span><span class="stat-value item-value">${unitValue}</span></div>
             <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
             <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}"><span class="stat-label">Stability</span><span class="stat-value">${stabilityText}</span></div>
           </div>
@@ -3572,6 +3627,11 @@ theirTotal += rowTotal;
 </body>
 
 </html>
+
+
+
+
+
 
 
 
