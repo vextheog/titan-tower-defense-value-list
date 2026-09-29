@@ -2903,8 +2903,8 @@ function renderItems(items) {
           : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPrice.toFixed(2)}`;
 
        const gemsHTML = (item.minPrice === item.maxPrice)
-          ? item.minPrice.toFixed(2)
-          : `${item.minPrice.toFixed(2)}<span class="range-sep"> - </span><wbr>${item.maxPrice.toFixed(2)}`;
+          ? (item.minPrice * GEM_RATE).toFixed(0)
+          : `${(item.minPrice * GEM_RATE).toFixed(0)}<span class="range-sep"> - </span><wbr>${(item.maxPrice * GEM_RATE).toFixed(0)}`;
         
         const uttvsText = (item.minPrice === item.maxPrice)
           ? minPriceC2.toFixed(2)
@@ -2961,7 +2961,7 @@ function renderItems(items) {
 
             <div class="stats-chips">
               <div class="stat-chip chip-price"><span class="stat-value"> ${ coinsHTML } </span></div>
-              <div class="stat-chip chip-gem"><span class="stat-label">Gems:</span><span class="stat-value">${gemsHTML}</span></div>
+              <div class="stat-chip chip-gem"><span class="stat-label">Gems</span><span class="stat-value item-gems">${(price * GEM_RATE).toFixed(0)}</span></div>
               <div class="stat-chip chip-uttvs"><span class="stat-label">UTTVs:</span><span class="stat-value">${uttvsText}</span></div>
               <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand:</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
               <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}"><span class="stat-label">Stability:</span><span class="stat-value">${stabilityText}</span></div>
