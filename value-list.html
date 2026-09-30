@@ -740,12 +740,15 @@ body{
     #value-page.pc-mode{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
+/* Ensure every card is a strict positioning context and clips overflowing content */
 #value-page .premade-item,
 #trade-page .premade-item {
-  overflow: hidden !important; /* Prevents anything from overflowing outside the card */
   position: relative !important;
+  overflow: hidden !important;
+  contain: layout style paint !important;
 }
 
+/* Force strict box boundaries for the image container */
 #value-page .item-image-container,
 #trade-page .item-image-container {
   width: 80px !important;
@@ -763,6 +766,7 @@ body{
   flex-shrink: 0 !important;
 }
 
+/* Force images to stay strictly inside their 80x80 container */
 #value-page .item-image,
 #trade-page .item-image {
   max-width: 100% !important;
