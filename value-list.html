@@ -795,9 +795,48 @@ body{
 .offer-icon img {
   object-fit: contain !important;
 }
+</style>
+<style>
+  /* Main item images */
+#value-page .premade-item .item-image-container,
+#trade-page .premade-item .item-image-container {
+  box-sizing: border-box !important;
+  width: 100px !important;
+  height: 100px !important;
+  min-width: 100px !important;
+  min-height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  margin: 0 auto 10px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  flex: 0 0 100px !important;
+}
 
-/* Small icon images inside the Value / Gems / UTTVs labels */
-.stat-label-icon {
+#value-page .premade-item .item-image,
+#trade-page .premade-item .item-image {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Small Value, Gems, and UTTV icons */
+#value-page .stat-label-icon,
+#trade-page .stat-label-icon {
+  box-sizing: border-box !important;
   display: inline-block !important;
   width: 18px !important;
   height: 18px !important;
@@ -805,11 +844,151 @@ body{
   min-height: 18px !important;
   max-width: 18px !important;
   max-height: 18px !important;
+  flex: 0 0 18px !important;
+  margin: 0 4px 0 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+}
+
+/* Keep icon labels compact */
+#value-page .stat-label-with-icon,
+#trade-page .stat-label-with-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+}
+
+/* Prevent other images inside stat chips from expanding them */
+#value-page .stat-chip img,
+#trade-page .stat-chip img {
+  max-width: 18px !important;
+  max-height: 18px !important;
+  object-fit: contain !important;
+}
+
+/* Trade Calculator offer images */
+#trade-page .offer-icon {
+  box-sizing: border-box !important;
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  max-width: 46px !important;
+  max-height: 46px !important;
+  overflow: hidden !important;
+}
+
+#trade-page .offer-unit-icon {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+</style>
+<style>
+/* FINAL CARD IMAGE AND STAT ICON FIX */
+#value-page .premade-item .item-image-container,
+#trade-page .premade-item .item-image-container {
+  box-sizing: border-box !important;
+  width: 100px !important;
+  height: 100px !important;
+  min-width: 100px !important;
+  min-height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  margin: 0 auto 10px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  flex: 0 0 100px !important;
+}
+
+#value-page .premade-item .item-image,
+#trade-page .premade-item .item-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Prevent Value/Gems/UTTV icons from expanding the stat chips */
+#value-page .stat-label-icon,
+#trade-page .stat-label-icon {
+  display: inline-block !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  flex: 0 0 18px !important;
   object-fit: contain !important;
   vertical-align: middle !important;
   margin: 0 4px 0 0 !important;
 }
+
+/* Keep the label and its icon on one compact line */
+#value-page .stat-label-with-icon,
+#trade-page .stat-label-with-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 24px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+/* Prevent a stat chip from becoming a giant blank rectangle */
+#value-page .stat-chip,
+#trade-page .stat-chip {
+  box-sizing: border-box !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: 40px !important;
+  overflow: hidden !important;
+  align-items: center !important;
+}
+
+#value-page .stat-chip img,
+#trade-page .stat-chip img {
+  flex: 0 0 auto !important;
+}
+
+/* Offer icons in the trade calculator */
+#trade-page .offer-unit-icon {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
 </style>
+</head>
 <style>
 
     /* Trade Calculator chip text colors */
