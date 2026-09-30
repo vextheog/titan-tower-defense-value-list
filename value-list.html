@@ -740,42 +740,74 @@ body{
     #value-page.pc-mode{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
-#value-page .premade-item,
-#trade-page .premade-item {
-  position: relative !important;
-  overflow: hidden !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-}
-
+/* Final image-size reset */
 #value-page .premade-item .item-image-container,
-#trade-page .premade-item .item-image-container,
-.item-image-container {
+#trade-page .premade-item .item-image-container {
+  box-sizing: border-box !important;
   width: 100px !important;
   height: 100px !important;
   min-width: 100px !important;
   min-height: 100px !important;
   max-width: 100px !important;
   max-height: 100px !important;
-  margin: 0 auto 10px auto !important;
+  margin: 0 auto 10px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  overflow: hidden !important;
   position: relative !important;
   flex: 0 0 100px !important;
 }
 
 #value-page .premade-item .item-image,
-#trade-page .premade-item .item-image,
-.item-image {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  object-fit: contain !important;
+#trade-page .premade-item .item-image {
+  box-sizing: border-box !important;
   display: block !important;
+  width: 100px !important;
+  height: 100px !important;
+  min-width: 100px !important;
+  min-height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Important: the small icons inside Value/Gems/UTTV labels also need sizing */
+.stat-label-icon {
+  display: inline-block !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+  margin: 0 4px 0 0 !important;
+}
+
+/* Prevent failed images from creating large empty areas */
+.item-image-container img,
+.offer-icon img {
+  object-fit: contain !important;
+}
+
+/* Small icon images inside the Value / Gems / UTTVs labels */
+.stat-label-icon {
+  display: inline-block !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  object-fit: contain !important;
+  vertical-align: middle !important;
+  margin: 0 4px 0 0 !important;
 }
 </style>
 <style>
