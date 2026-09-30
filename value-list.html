@@ -988,6 +988,73 @@ body{
   object-fit: contain !important;
 }
 </style>
+<style>
+/* FINAL RARITY BORDER OVERRIDE */
+
+/* Unobtainable — maroon card border and rarity label */
+#value-page .premade-item.unobtainable,
+#trade-page .premade-item.unobtainable {
+  position: relative !important;
+  border-top: 4px solid #800000 !important;
+}
+
+#value-page .premade-item.unobtainable .item-rarity,
+#trade-page .premade-item.unobtainable .item-rarity {
+  background: #800000 !important;
+  border-color: #800000 !important;
+  color: #fff !important;
+}
+
+/* Shiny — rainbow card border */
+#value-page .premade-item.shiny,
+#trade-page .premade-item.shiny {
+  position: relative !important;
+  border-top: 4px solid transparent !important;
+}
+
+/* Rainbow strip at the top of every Shiny card */
+#value-page .premade-item.shiny::before,
+#trade-page .premade-item.shiny::before {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 10 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  display: block !important;
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7700,
+    #ffdd00,
+    #00ff00,
+    #0077ff,
+    #0000ff,
+    #7700ff
+  ) !important;
+  border-radius: 10px 10px 0 0 !important;
+  pointer-events: none !important;
+}
+
+/* Shiny rarity label */
+#value-page .premade-item.shiny .item-rarity,
+#trade-page .premade-item.shiny .item-rarity {
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7700,
+    #ffdd00,
+    #00ff00,
+    #0077ff,
+    #0000ff,
+    #7700ff
+  ) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  text-shadow: 0 0 3px rgba(0, 0, 0, .8) !important;
+}
+</style>
 </head>
 <style>
 
