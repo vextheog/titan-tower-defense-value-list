@@ -1396,14 +1396,14 @@ font-size: 0.95rem;
       font-weight: 600;
     }
 
-    #trade-page .premade ,gem-price{
+    #trade-page .premade .gem-price{
       font-weight: bold;
       fontsize: 1rem;
       margin: 5px 0;
       color: #800080;
     }
 
-    #trade-page .premade-item ,gem-price-secondary{
+    #trade-page .premade-item .gem-price-secondary{
       margin: 5px 0;
       font-size: 0.85rem;
       color: #800080;
@@ -2743,7 +2743,7 @@ function renderItems(items) {
   const ROOT = document.getElementById('trade-page');
     let priceMode = 'avg'; // 'min', 'avg', 'max'
 
-    const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'shiny', 'item'];
+    const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'limited', 'secret', 'shiny', 'item'];
     const selectedRarities = new Set();
     let currentSort = 'highToLow'; // 'highToLow', 'lowToHigh', 'az', 'za'
     let currentFilter = '';
@@ -2961,7 +2961,7 @@ function renderItems(items) {
 
             <div class="stats-chips">
               <div class="stat-chip chip-price"><span class="stat-value"> ${ coinsHTML } </span></div>
-              <div class="stat-chip chip-gem"><span class="stat-label">Gems</span><span class="stat-value item-gems">${(price * GEM_RATE).toFixed(0)}</span></div>
+              <div class="stat-chip chip-gem"><span class="stat-label">Gems</span><span class="stat-value item-gems">${gemsHTML}</span></div>
               <div class="stat-chip chip-uttvs"><span class="stat-label">UTTVs:</span><span class="stat-value">${uttvsText}</span></div>
               <div class="stat-chip chip-demand" style="${demandStyle}"><span class="stat-label">Demand:</span><span class="stat-value">${demandText}</span><span class="stat-suffix">/10</span></div>
               <div class="stat-chip chip-stability stability-${stabilityCls}" style="${stabilityStyle}"><span class="stat-label">Stability:</span><span class="stat-value">${stabilityText}</span></div>
