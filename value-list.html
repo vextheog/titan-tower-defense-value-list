@@ -773,7 +773,7 @@ body{
   display: inline-block !important;
 }
 
-
+/* 1. Item Image Container (Strict 100x100 Box) */
 #value-page .premade-item .item-image-container,
 #trade-page .premade-item .item-image-container {
   position: relative !important;
@@ -784,54 +784,42 @@ body{
   max-width: 100px !important;
   max-height: 100px !important;
 
+  flex: 0 0 100px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-
-  flex: 0 0 100px !important;
-  box-sizing: border-box !important;
   overflow: hidden !important;
+  box-sizing: border-box !important;
 
   margin: 0 auto 10px !important;
   padding: 8px !important;
-
   background: #333 !important;
   border: 2px solid #444 !important;
   border-radius: 12px !important;
 }
 
-/* Keep the original aspect ratio */
+/* 2. The Actual Image (Forced to fit container with proper aspect ratio) */
 #value-page .premade-item .item-image-container > img.item-image,
 #trade-page .premade-item .item-image-container > img.item-image {
   display: block !important;
-
-  width: auto !important;
-  height: auto !important;
-
+  width: 100% !important;
+  height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-
-  min-width: 0 !important;
-  min-height: 0 !important;
-
-  flex: 0 0 auto !important;
   object-fit: contain !important;
   object-position: center !important;
-
+  box-sizing: border-box !important;
   margin: 0 !important;
   padding: 0 !important;
-  box-sizing: border-box !important;
 }
 
-/* Fallback icon */
+/* Fallback Icon */
 #value-page .premade-item .item-image-container > .item-icon,
 #trade-page .premade-item .item-image-container > .item-icon {
   font-size: 24px !important;
-  width: auto !important;
-  height: auto !important;
 }
 
-/* Mobile */
+/* Tablet & Mobile Responsiveness */
 @media (max-width: 768px) {
   #value-page .premade-item .item-image-container,
   #trade-page .premade-item .item-image-container {
@@ -856,14 +844,6 @@ body{
     max-height: 70px !important;
     flex-basis: 70px !important;
   }
-}
-  /* TEMPORARY OVERRIDE — put this last */
-#value-page .premade-item .item-image-container img.item-image,
-#trade-page .premade-item .item-image-container img.item-image {
-  width: auto !important;
-  height: auto !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
 }
 </style>
 <style>
