@@ -757,6 +757,27 @@ body{
     #value-page.pc-mode{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
+.item-image-container {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.item-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
 </style>
 <style>
 
