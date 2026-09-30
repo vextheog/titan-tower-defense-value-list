@@ -773,9 +773,10 @@ body{
   display: inline-block !important;
 }
 
-/* 1. Catalog card image container */
+
 #value-page .premade-item .item-image-container,
 #trade-page .premade-item .item-image-container {
+  position: relative !important;
   width: 100px !important;
   height: 100px !important;
   min-width: 100px !important;
@@ -783,8 +784,6 @@ body{
   max-width: 100px !important;
   max-height: 100px !important;
 
-  margin: 0 auto 10px !important;
-  padding: 8px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -793,26 +792,46 @@ body{
   box-sizing: border-box !important;
   overflow: hidden !important;
 
-  background: #333333;
-  border: 2px solid #444;
-  border-radius: 12px;
+  margin: 0 auto 10px !important;
+  padding: 8px !important;
+
+  background: #333 !important;
+  border: 2px solid #444 !important;
+  border-radius: 12px !important;
 }
 
-/* 2. The actual image (forced to fit 100% inside container) */
-#value-page .premade-item img.item-image,
-#trade-page .premade-item img.item-image,
-#trade-page .item-image {
+/* Keep the original aspect ratio */
+#value-page .premade-item .item-image-container > img.item-image,
+#trade-page .premade-item .item-image-container > img.item-image {
   display: block !important;
-  width: 100% !important;
-  height: 100% !important;
+
+  width: auto !important;
+  height: auto !important;
+
   max-width: 100% !important;
   max-height: 100% !important;
+
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  flex: 0 0 auto !important;
   object-fit: contain !important;
   object-position: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
   box-sizing: border-box !important;
 }
 
-/* Mobile responsive sizing */
+/* Fallback icon */
+#value-page .premade-item .item-image-container > .item-icon,
+#trade-page .premade-item .item-image-container > .item-icon {
+  font-size: 24px !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   #value-page .premade-item .item-image-container,
   #trade-page .premade-item .item-image-container {
@@ -822,6 +841,7 @@ body{
     min-height: 80px !important;
     max-width: 80px !important;
     max-height: 80px !important;
+    flex-basis: 80px !important;
   }
 }
 
@@ -834,6 +854,7 @@ body{
     min-height: 70px !important;
     max-width: 70px !important;
     max-height: 70px !important;
+    flex-basis: 70px !important;
   }
 }
 </style>
