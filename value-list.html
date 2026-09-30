@@ -353,6 +353,7 @@ body{
   #value-page .rarity-tab.mythic.active{ background: #e74c3c; border-color: #e74c3c; color: white; }
   #value-page .rarity-tab.secret.active{ background: #2c0367; border-color: #1a0133; color: white; }
   #value-page .rarity-tab.limited.active{ background: #00022E; border-color: #00022E; color: white; }
+  #value-page .rarity-tab.unobtainable.active{ background: #800000; border-color: ##800000; color:white; }
   #value-page .rarity-tab.shiny.active{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
     border-color: white;
@@ -549,6 +550,7 @@ body{
   .stability-overpaid{ border-color: rgba(2, 48, 32,.30); background: rgba(2, 48, 32.10); }
   .stability-gatekept{ border-color: rgba(0, 0, 139,.30); background: rgba(0, 0, 139.10); }
   .stability-underpaid{ border-color: rgba(139, 0, 0.32); background: rgba(139, 0, 0.11); }
+  .stability-untradeable{ border-color: rgba(128, 0, 0.30); background: rgba(128, 0, 0.10); }
   #trade-page .stats-chips .item-price{ font-size: inherit; margin: 0; }
   #trade-page .stats-chips .gem-price{ font-size: inherit; margin: 0; }
 
@@ -597,6 +599,8 @@ body{
   #value-page .secret .item-rarity{ background: #2c0367; }
   #value-page .limited .item-rarity, #value-page .premade-item.limited{ border-top: 4px solid #00022E; }
   #value-page .limited .item-rarity{ background:#00022E; }
+  #value-page .unobtainable .item-rarity #value-page .premade-item.unobtainable{ border-top: 4px solid#800000; }
+  #value-page .unobtainable .item-rarity{ background:#800000' }
   #value-page .shiny .item-rarity{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
     color: white;
@@ -1233,6 +1237,7 @@ font-size: 0.95rem;
     #trade-page .rarity-tab.mythic.active{ background:#e74c3c; border-color:#c0392b; color:white; }
     #trade-page .rarity-tab.secret.active{ background:#2c0367; border-color:#1a0133; color:white; }
     #trade-page .rarity-tab.limited.active{ background:#00022E; border-color:#00022E; color:white; }
+    #trade-page .rarity-tab.unobtainable.active{ background:#800000; border-color:#800000; color:white; }
     #trade-page .rarity-tab.shiny.active{
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       border-color: white;
@@ -1341,6 +1346,7 @@ font-size: 0.95rem;
     #trade-page .premade-item.mythic{ border-top: 4px solid #e74c3c; }
     #trade-page .premade-item.limited{ border-top: 4px solid #00022E; }
     #trade-page .premade-item.secret{ border-top: 4px solid #2c0367; }
+    #trade-page .premade-item.unobtainable{ border-top: 4px solid #800000; }
 
     #trade-page .premade-item.shiny{
   /* Shiny cards in Trade Calculator: no outer glow — only icon frame glows */
@@ -1454,6 +1460,7 @@ font-size: 0.95rem;
     #trade-page .mythic .item-rarity{ background:#e74c3c; color:white; }
     #trade-page .secret .item-rarity{ background:#2c0367; color:white; }
     #trade-page .limited .item-rarity{ background:#00022E; color:white }
+    #trade-page .unobtainable .item-rarity{ background:#800000; color:white}
     #trade-page .shiny .item-rarity{
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       color: white;
@@ -1952,6 +1959,7 @@ font-size: 0.95rem;
         <div class="rarity-tab mythic" onclick="VL_showRarity('mythic')">Mythic</div>
         <div class="rarity-tab secret" onclick="VL_showRarity('secret')">Secret</div>
         <div class="rarity-tab limited" onclick="VL_showRarity('limited')">Limited</div>
+        <div class="rarity-tab unobtainable" onclick="VL_showRarity('unobtainable')">Unobtainable</div>
         <div class="rarity-tab shiny" onclick="VL_showRarity('shiny')">Shiny</div>
         <div class="rarity-tab item" onclick="VL_showRarity('item')">Item</div>
       </div>
@@ -2097,6 +2105,7 @@ font-size: 0.95rem;
           <div class="rarity-tab mythic" onclick="TC_showRarity('mythic')">Mythic</div>
           <div class="rarity-tab secret" onclick="TC_showRarity('secret')">Secret</div>
           <div class="rarity-tab limited" onclick="TC_showRarity('limited')">Limited</div>
+          <div class="rarity-tab unobtainable" onclick="TC_showRarity('unobtainable')">Unobtainable</div>
           <div class="rarity-tab shiny" onclick="TC_showRarity('shiny')">Shiny</div>
           <div class="rarity-tab item" onclick="TC_showRarity('item')">Item</div>
         </div>
@@ -2231,7 +2240,7 @@ font-size: 0.95rem;
         { name: "Red Laser Camera", minPrice: 8, maxPrice: 8, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029961/laser.webp" },
         { name: "Engineer Camera", minPrice: 12.5, maxPrice: 12.5, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029955/engineer.webp" },
         { name: "Titan Cinema", minPrice: 7, maxPrice: 7, demand: 5, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789029897/cinema.webp" },
-        { name: "Frankengineer (shocked)", minPrice: 1, maxPrice: 1, demand: 1, stability: "Stable",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/frankengineer.png" },
+        { name: "Frankengineer (shocked)", minPrice: 2, maxPrice: 2, demand: 1, stability: "Stable",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/frankengineer.png" },
         { name: "Frankengineer", minPrice: 1, maxPrice: 1, demand: 1, stability: "Stable",imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115439/frankengineer.png" },
         { name: "Chief Scientist Camera (command)", minPrice: 1, maxPrice: 1, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789473451/chief_camera.webp" },
         { name: "Titan TV", minPrice: 4, maxPrice: 4, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115453/Titan_Tv.png" },
@@ -2249,11 +2258,11 @@ font-size: 0.95rem;
         { name: "Energy TV Woman (scythe)", minPrice: 1080, maxPrice: 1080, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025688/Scythe_Energy_Tv_Women.webp" },
         { name: "Enhanced Energy TV", minPrice: 900, maxPrice: 900, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
         { name: "Energy TV", minPrice: 855, maxPrice: 855, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
-        { name: "Titan Drill", minPrice: 405, maxPrice: 405, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/f_auto,q_auto/Drill_man" },
+        { name: "Titan Drill", minPrice: 405, maxPrice: 405, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/f_auto,q_auto/Drill_man" },
         { name: "Bomb Woman", minPrice: 1620, maxPrice: 1620, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025489/Bombwomen.webp" },
         { name: "Bomb Woman (nuclear)", minPrice: 1800, maxPrice: 1800, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025566/bomb_women_Nuclear.webp" },
-        { name: "Clock Woman", minPrice: 472.5, maxPrice: 472.5, demand: 4.5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025412/Clock_Women.webp" },
-        { name: "Clock Woman (future)", minPrice: 1620, maxPrice: 1620, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/f_auto,q_auto/Clock_Women_future" }
+        { name: "Clock Woman", minPrice: 472.5, maxPrice: 472.5, demand: 5, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025412/Clock_Women.webp" },
+        { name: "Clock Woman (future)", minPrice: 1620, maxPrice: 1620, demand: 4, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/f_auto,q_auto/Clock_Women_future" }
       ],
       limited: [
         { name: "Titan Grill (full gas)", minPrice: 4500, maxPrice: 4500, demand: 7, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025657/Titan_Grill_man_Full_Gas.webp" },
@@ -2302,12 +2311,12 @@ font-size: 0.95rem;
         { name: "Shiny Slotman (highroller)", minPrice: 7650, maxPrice: 7650, demand: 4, stability: "Overpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025726/Slotman_highRoller.webp" },
         { name: "Shiny Bomb Woman", minPrice: 1710, maxPrice: 1710, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025489/Bombwomen.webp" },
         { name: "Shiny Bomb Woman (nuclear)", minPrice: 3600, maxPrice: 3600, demand: 3, stability: "Gatekept", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025566/bomb_women_Nuclear.webp" },
-        { name: "Shiny Energy TV Woman (scythe)", minPrice: 1980, maxPrice: 1980, demand: 1, stability: "Underpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025688/Scythe_Energy_Tv_Women.webp" },
+        { name: "Shiny Energy TV Woman (scythe)", minPrice: 1980, maxPrice: 1980, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025688/Scythe_Energy_Tv_Women.webp" },
         { name: "Shiny Zombie Titan TV", realRarity: "secret", minPrice: 720, maxPrice: 720, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025840/Zombie_Titan_Tv_man.webp" },
         { name: "Shiny Zombie Titan TV (enraged)", realRarity: "secret", minPrice: 2250, maxPrice: 2250, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025844/Zombie_Titan_Tv_man_Enraged.webp" },
         { name: "Shiny Titan Grill", realRarity: "secret", minPrice: 5400, maxPrice: 5400, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025615/Titan_Grill_man.webp" },
         { name: "Shiny Titan Grill (full gas)", realRarity: "secret", minPrice: 10800, maxPrice: 10800, demand: 6, stability: "Overpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025657/Titan_Grill_man_Full_Gas.webp" },
-        { name: "Shiny Enhanced Energy TV", realRarity: "secret", minPrice: 1890, maxPrice: 1890, demand: 1, stability: "Underpaid", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
+        { name: "Shiny Enhanced Energy TV", realRarity: "secret", minPrice: 1755, maxPrice: 1755, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
         { name: "Shiny Energy TV", realRarity: "secret", minPrice: 945, maxPrice: 945, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789027396/etv.png" },
         { name: "Shiny Clock Woman", realRarity: "secret", minPrice: 540, maxPrice: 540, demand: 1, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789025412/Clock_Women.webp" },
         { name: "Shiny Dark Singularity", minPrice: 30, maxPrice: 30, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115437/dark_singularity.png" },
@@ -2365,6 +2374,9 @@ font-size: 0.95rem;
         { name: "Shiny Commander Camera", minPrice: 20, maxPrice: 20, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115436/commander.png" },
         { name: "Shiny Captain Camera", minPrice: 5, maxPrice: 5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115433/captain_camera.png" }
       ],
+      unobtainable: [
+        { name: "Watchman of Ruin", minPrice: 13500, maxPrice: 13500, demand: 10, stability: "Untradeable" ,imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1790730733/Watchman_of_Ruin.png" }
+      ],
       item: [
         { name: "Zombie Pass", minPrice: 50, maxPrice: 50, demand: 1, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1789616583/Zombie_Pass.png" },
         { name: "Summer Pass", minPrice: 55, maxPrice: 55, demand: 1, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1789616575/Summer_Pass.png" },
@@ -2407,7 +2419,7 @@ font-size: 0.95rem;
         { name: "x2 Speed Token", minPrice: 25, maxPrice: 25, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789480968/2x.webp" },
         { name: "Lucky Token", minPrice: 15, maxPrice: 15, demand: 2, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481108/lucky.webp" },
         { name: "Shell Trophy", minPrice: 30, maxPrice: 30, demand: 3, stability: "Stable", imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483458/shelltrophe.webp" },
-        { name: "Hot Coal", minPrice: 65, maxPrice: 65, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115435/Charcoal.webp" },
+        { name: "Hot Coal", minPrice: 68, maxPrice: 68, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115435/Charcoal.webp" },
         { name: "Haunted Branch", minPrice: 12, maxPrice: 12, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789483452/branch.webp" },
         { name: "Take The L Emote", minPrice: 12.5, maxPrice: 12.5, demand: 1, imageUrl: "https://i.ibb.co/XkSWPKJ3/Skrinsot-05-01-2026-173636.png" },
         { name: "+300 Storage Token", minPrice: 15, maxPrice: 15, demand: 2, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789481111/300.webp" },
@@ -2457,10 +2469,11 @@ font-size: 0.95rem;
     if (v === 'overpaid') return 'Overpaid';
     if (v === 'gatekept') return 'Gatekept';
     if (v === 'underpaid') return 'Underpaid';
+    if (v === 'untradeable') return 'Untradeable';
     return 'Stable';
   }
   function stabilityClass(value){
-    return normalizeStability(value).toLowerCase(); // stable | rising | dropping | fluctuating | overpaid | underpaid | gatekept
+    return normalizeStability(value).toLowerCase(); // stable | rising | dropping | fluctuating | overpaid | underpaid | gatekept | untradeable
   }
 
   function clampNumber(n, min, max){
@@ -2504,6 +2517,7 @@ font-size: 0.95rem;
     if (s === 'Overpaid') return [2, 48, 32];          // dark green
     if (s === 'Gatekept') return [0, 0, 139];          // dark blue
     if (s === 'Underpaid') return [139, 0, 0];         // dark red
+    if (s === 'Untradeable') return [128, 0, 0];       // maroon
     return [120, 200, 255];                            // Stable: blue/cyan
   }
   function stabilityChipStyle(status){
@@ -2521,7 +2535,7 @@ font-size: 0.95rem;
 (function(){
   'use strict';
   const ROOT = document.getElementById('value-page');
-  const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'limited', 'prime', 'shiny', 'item'];
+  const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'limited', 'unobtainable', 'shiny', 'item'];
   const selectedRarities = new Set();
   let currentFilter = '';
   let currentSort = 'highToLow';
@@ -2743,7 +2757,7 @@ function renderItems(items) {
   const ROOT = document.getElementById('trade-page');
     let priceMode = 'avg'; // 'min', 'avg', 'max'
 
-    const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'limited', 'secret', 'shiny', 'item'];
+    const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'limited', 'unobtainable', 'secret', 'shiny', 'item'];
     const selectedRarities = new Set();
     let currentSort = 'highToLow'; // 'highToLow', 'lowToHigh', 'az', 'za'
     let currentFilter = '';
