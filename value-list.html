@@ -649,20 +649,6 @@ body{
     box-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
   }
 
-  /* Fix image scaling on Value List and Trade Calculator */
-#value-page .item-image,
-#trade-page .item-image,
-#value-page .item-image-container img,
-#trade-page .item-image-container img {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain !important;
-  display: block;
-}
-
-/* Keep container at fixed size so images stay inside */
 #value-page .item-image-container,
 #trade-page .item-image-container {
   width: 100px;
@@ -673,19 +659,21 @@ body{
   overflow: hidden;
 }
 
+#value-page .item-image-container img,
+#trade-page .item-image-container img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Responsive sizes for smaller screens */
 @media (max-width: 768px) {
   #value-page .item-image-container,
   #trade-page .item-image-container {
     width: 80px;
     height: 80px;
-  }
-}
-
-@media (max-width: 480px) {
-  #value-page .item-image-container,
-  #trade-page .item-image-container {
-    width: 70px;
-    height: 70px;
   }
 }
 .premade-item.shiny .item-image-container{
