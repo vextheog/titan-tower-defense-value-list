@@ -740,9 +740,14 @@ body{
     #value-page.pc-mode{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
-#value-page .premade-item .item-image-container,
-#trade-page .premade-item .item-image-container,
-.item-image-container {
+#value-page .premade-item,
+#trade-page .premade-item {
+  overflow: hidden !important; /* Prevents anything from overflowing outside the card */
+  position: relative !important;
+}
+
+#value-page .item-image-container,
+#trade-page .item-image-container {
   width: 80px !important;
   height: 80px !important;
   min-width: 80px !important;
@@ -758,9 +763,8 @@ body{
   flex-shrink: 0 !important;
 }
 
-#value-page .premade-item .item-image,
-#trade-page .premade-item .item-image,
-.item-image {
+#value-page .item-image,
+#trade-page .item-image {
   max-width: 100% !important;
   max-height: 100% !important;
   width: auto !important;
