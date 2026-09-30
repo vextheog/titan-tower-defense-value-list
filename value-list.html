@@ -740,17 +740,18 @@ body{
     #value-page.pc-mode{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
-/* Ensure every card is a strict positioning context and clips overflowing content */
 #value-page .premade-item,
 #trade-page .premade-item {
   position: relative !important;
   overflow: hidden !important;
-  contain: layout style paint !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
 }
 
-/* Force strict box boundaries for the image container */
-#value-page .item-image-container,
-#trade-page .item-image-container {
+#value-page .premade-item .item-image-container,
+#trade-page .premade-item .item-image-container,
+.item-image-container {
   width: 80px !important;
   height: 80px !important;
   min-width: 80px !important;
@@ -763,16 +764,16 @@ body{
   justify-content: center !important;
   overflow: hidden !important;
   position: relative !important;
-  flex-shrink: 0 !important;
+  flex: 0 0 80px !important;
 }
 
-/* Force images to stay strictly inside their 80x80 container */
-#value-page .item-image,
-#trade-page .item-image {
+#value-page .premade-item .item-image,
+#trade-page .premade-item .item-image,
+.item-image {
+  width: 100% !important;
+  height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
   object-fit: contain !important;
   display: block !important;
 }
