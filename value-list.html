@@ -740,37 +740,27 @@ body{
     #value-page.pc-mode{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 
-#value-page .item-image-container,
-#trade-page .item-image-container {
+#value-page .premade-item .item-image-container,
+#trade-page .premade-item .item-image-container,
+.item-image-container {
   width: 80px !important;
   height: 80px !important;
   min-width: 80px !important;
   min-height: 80px !important;
   max-width: 80px !important;
   max-height: 80px !important;
-  overflow: hidden !important;
+  margin: 0 auto 10px auto !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  position: relative !important;
-}
-#value-page .item-image-container,
-#trade-page .item-image-container {
-  width: 80px !important;
-  height: 80px !important;
-  min-width: 80px !important;
-  min-height: 80px !important;
-  max-width: 80px !important;
-  max-height: 80px !important;
   overflow: hidden !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
   position: relative !important;
+  flex-shrink: 0 !important;
 }
 
-#value-page .item-image,
-#trade-page .item-image {
+#value-page .premade-item .item-image,
+#trade-page .premade-item .item-image,
+.item-image {
   max-width: 100% !important;
   max-height: 100% !important;
   width: auto !important;
