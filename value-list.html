@@ -352,7 +352,6 @@ body{
   #value-page .rarity-tab.mythic.active{ background: #e74c3c; border-color: #e74c3c; color: white; }
   #value-page .rarity-tab.secret.active{ background: #2c0367; border-color: #1a0133; color: white; }
   #value-page .rarity-tab.limited.active{ background: #00022E; border-color: #00022E; color: white; }
-  #value-page .rarity-tab.unobtainable.active{ background: #800000; border-color: ##800000; color:white; }
   #value-page .rarity-tab.shiny.active{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
     border-color: white;
@@ -598,8 +597,6 @@ body{
   #value-page .secret .item-rarity{ background: #2c0367; }
   #value-page .limited .item-rarity, #value-page .premade-item.limited{ border-top: 4px solid #00022E; }
   #value-page .limited .item-rarity{ background:#00022E; }
-  #value-page .unobtainable .item-rarity #value-page .premade-item.unobtainable{ border-top: 4px solid#800000; }
-  #value-page .unobtainable .item-rarity{ background:#800000' }
   #value-page .shiny .item-rarity{
     background: linear-gradient(90deg, #ff0000, #ff7700, #ffdd00, #00ff00, #0077ff, #0000ff, #7700ff);
     color: white;
@@ -989,21 +986,6 @@ body{
 }
 </style>
 <style>
-/* FINAL RARITY BORDER OVERRIDE */
-
-/* Unobtainable — maroon card border and rarity label */
-#value-page .premade-item.unobtainable,
-#trade-page .premade-item.unobtainable {
-  position: relative !important;
-  border-top: 4px solid #800000 !important;
-}
-
-#value-page .premade-item.unobtainable .item-rarity,
-#trade-page .premade-item.unobtainable .item-rarity {
-  background: #800000 !important;
-  border-color: #800000 !important;
-  color: #fff !important;
-}
 
 /* Shiny — rainbow card border */
 #value-page .premade-item.shiny,
@@ -1056,6 +1038,27 @@ body{
 }
 </style>
 </head>
+<style>
+#value-page .premade-item .item-image-container,
+#trade-page .premade-item .item-image-container {
+  border: 3px solid transparent !important;
+  border-radius: 20px !important;
+
+  background:
+    linear-gradient(#2d2d2d, #2d2d2d) padding-box,
+    linear-gradient(
+      135deg,
+      #9da9ad 0%,
+      #4c5559 45%,
+      #303438 75%,
+      #8f9da1 100%
+    ) border-box !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 3px 8px rgba(0,0,0,.25) !important;
+}
+</style>
 <style>
 
     /* Trade Calculator chip text colors */
@@ -1450,7 +1453,6 @@ font-size: 0.95rem;
     #trade-page .rarity-tab.mythic.active{ background:#e74c3c; border-color:#c0392b; color:white; }
     #trade-page .rarity-tab.secret.active{ background:#2c0367; border-color:#1a0133; color:white; }
     #trade-page .rarity-tab.limited.active{ background:#00022E; border-color:#00022E; color:white; }
-    #trade-page .rarity-tab.unobtainable.active{ background:#800000; border-color:#800000; color:white; }
     #trade-page .rarity-tab.shiny.active{
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       border-color: white;
@@ -1559,7 +1561,6 @@ font-size: 0.95rem;
     #trade-page .premade-item.mythic{ border-top: 4px solid #e74c3c; }
     #trade-page .premade-item.limited{ border-top: 4px solid #00022E; }
     #trade-page .premade-item.secret{ border-top: 4px solid #2c0367; }
-    #trade-page .premade-item.unobtainable{ border-top: 4px solid #800000; }
 
     #trade-page .premade-item.shiny{
   /* Shiny cards in Trade Calculator: no outer glow — only icon frame glows */
@@ -1673,7 +1674,6 @@ font-size: 0.95rem;
     #trade-page .mythic .item-rarity{ background:#e74c3c; color:white; }
     #trade-page .secret .item-rarity{ background:#2c0367; color:white; }
     #trade-page .limited .item-rarity{ background:#00022E; color:white }
-    #trade-page .unobtainable .item-rarity{ background:#800000; color:white}
     #trade-page .shiny .item-rarity{
       background: linear-gradient(90deg,#ff0000,#ff7700,#ffdd00,#00ff00,#0077ff,#0000ff,#7700ff);
       color: white;
@@ -2172,7 +2172,6 @@ font-size: 0.95rem;
         <div class="rarity-tab mythic" onclick="VL_showRarity('mythic')">Mythic</div>
         <div class="rarity-tab secret" onclick="VL_showRarity('secret')">Secret</div>
         <div class="rarity-tab limited" onclick="VL_showRarity('limited')">Limited</div>
-        <div class="rarity-tab unobtainable" onclick="VL_showRarity('unobtainable')">Unobtainable</div>
         <div class="rarity-tab shiny" onclick="VL_showRarity('shiny')">Shiny</div>
         <div class="rarity-tab item" onclick="VL_showRarity('item')">Item</div>
       </div>
@@ -2318,7 +2317,6 @@ font-size: 0.95rem;
           <div class="rarity-tab mythic" onclick="TC_showRarity('mythic')">Mythic</div>
           <div class="rarity-tab secret" onclick="TC_showRarity('secret')">Secret</div>
           <div class="rarity-tab limited" onclick="TC_showRarity('limited')">Limited</div>
-          <div class="rarity-tab unobtainable" onclick="TC_showRarity('unobtainable')">Unobtainable</div>
           <div class="rarity-tab shiny" onclick="TC_showRarity('shiny')">Shiny</div>
           <div class="rarity-tab item" onclick="TC_showRarity('item')">Item</div>
         </div>
@@ -2587,9 +2585,6 @@ font-size: 0.95rem;
         { name: "Shiny Commander Camera", minPrice: 20, maxPrice: 20, demand: 4, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115436/commander.png" },
         { name: "Shiny Captain Camera", minPrice: 5, maxPrice: 5, demand: 1, imageUrl: "https://res.cloudinary.com/byjdyqnb/image/upload/v1789115433/captain_camera.png" }
       ],
-      unobtainable: [
-        { name: "Watchman of Ruin", minPrice: 13500, maxPrice: 13500, demand: 10, stability: "Untradeable" ,imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1790730733/Watchman_of_Ruin.png" }
-      ],
       item: [
         { name: "Zombie Pass", minPrice: 50, maxPrice: 50, demand: 1, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1789616583/Zombie_Pass.png" },
         { name: "Summer Pass", minPrice: 55, maxPrice: 55, demand: 1, imageUrl: "https://res.cloudinary.com/rkxclrso/image/upload/v1789616575/Summer_Pass.png" },
@@ -2748,7 +2743,7 @@ font-size: 0.95rem;
 (function(){
   'use strict';
   const ROOT = document.getElementById('value-page');
-  const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'limited', 'unobtainable', 'shiny', 'item'];
+  const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'secret', 'limited', 'shiny', 'item'];
   const selectedRarities = new Set();
   let currentFilter = '';
   let currentSort = 'highToLow';
@@ -2970,7 +2965,7 @@ function renderItems(items) {
   const ROOT = document.getElementById('trade-page');
     let priceMode = 'avg'; // 'min', 'avg', 'max'
 
-    const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'limited', 'unobtainable', 'secret', 'shiny', 'item'];
+    const ALL_RARITIES = ['epic', 'legendary', 'mythic', 'limited', 'secret', 'shiny', 'item'];
     const selectedRarities = new Set();
     let currentSort = 'highToLow'; // 'highToLow', 'lowToHigh', 'az', 'za'
     let currentFilter = '';
